@@ -2,6 +2,9 @@ package com.sharefy.android.ui.fragment.map
 
 import android.Manifest
 import android.content.pm.PackageManager
+import android.location.Location
+import android.location.LocationManager
+import android.location.LocationRequest
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,17 +13,24 @@ import android.view.ViewGroup
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.viewModels
 import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationRequest.PRIORITY_HIGH_ACCURACY
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
+import com.google.android.gms.tasks.CancellationTokenSource
 import com.sharefy.android.R
 import com.sharefy.android.base.BaseFragment
 import com.sharefy.android.databinding.FragmentMapBinding
 import dagger.hilt.android.AndroidEntryPoint
+import com.google.android.gms.maps.CameraUpdate
+
+
+
 
 
 @AndroidEntryPoint
@@ -30,20 +40,27 @@ class MapFragment : BaseFragment<FragmentMapBinding, MapViewModel>() {
 
     override val viewModel: MapViewModel by viewModels()
 
+    private var googleMap: GoogleMap?= null
+    private var lastLocation: Location? = null
+    set(value) {
+        field = value
+        updateMyLocationMarker()
+    }
+    var myLocationMarker: Marker? = null
+
     private val fusedLocationClient: FusedLocationProviderClient by lazy {
         LocationServices.getFusedLocationProviderClient(requireActivity())
     }
 
     override fun onReady(savedInstanceState: Bundle?) {
-
-
         initMap()
     }
 
     private fun initMap() {
         val mapFragment = childFragmentManager.findFragmentById(R.id.map_view) as SupportMapFragment?
         mapFragment?.getMapAsync {
-
+            googleMap = it
+            getLastKnownLocation()
         }
     }
 
@@ -55,10 +72,28 @@ class MapFragment : BaseFragment<FragmentMapBinding, MapViewModel>() {
         ) {
             return
         }
-        fusedLocationClient.lastLocation
-            .addOnSuccessListener {
 
-            }
+        val cancellationTokenSource = CancellationTokenSource()
+        fusedLocationClient.getCurrentLocation(PRIORITY_HIGH_ACCURACY, cancellationTokenSource.token).addOnSuccessListener {
+            lastLocation = it
+            cancellationTokenSource.cancel()
+        }
     }
 
+    private fun updateMyLocationMarker() {
+        lastLocation?.let {
+            val latLng = LatLng(it.latitude, it.longitude)
+            myLocationMarker?.remove()
+            myLocationMarker = googleMap?.addMarker(MarkerOptions().position(latLng))
+            moveCamera(latLng)
+        }
+    }
+
+    private fun moveCamera(location: LatLng){
+        val update = CameraUpdateFactory.newLatLngZoom(
+            location,
+            15f
+        )
+        googleMap?.animateCamera(update)
+    }
 }
