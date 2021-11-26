@@ -21,4 +21,8 @@ object FirestoreModule {
     @SampleReference
     fun provideSampleCollection(firestore: FirebaseFirestore) = firestore.collection("Sample")
 
+    @Provides
+    @Singleton
+    @UserReference
+    fun provideUserCollection(firestore: FirebaseFirestore) = firestore.collection("User")
 }

@@ -1,5 +1,7 @@
 package com.sharefy.android.ui.activity.main
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import com.sharefy.android.R
@@ -17,5 +19,9 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
     override val fragmentContainerId = R.id.navHostFragmentContainer
 
     override fun onReady(savedInstanceState: Bundle?) {
+    }
+
+    companion object {
+        fun newIntent(context: Context) = Intent(context, MainActivity::class.java)
     }
 }

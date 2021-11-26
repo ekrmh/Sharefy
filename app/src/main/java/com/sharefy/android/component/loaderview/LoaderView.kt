@@ -41,7 +41,8 @@ class LoaderView(private val context: Context) {
     }
 
     companion object {
-        private const val WIDTH_PERCENTAGE = 0.15
+        private const val WIDTH_PERCENTAGE = 0.65
+        const val LOADING_FILE_NAME = "lottie/loading.json"
     }
 }
 

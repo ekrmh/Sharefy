@@ -7,3 +7,6 @@ import javax.inject.Qualifier
 @Retention(AnnotationRetention.BINARY)
 annotation class SampleReference
 
+@Qualifier
+@Retention(AnnotationRetention.BINARY)
+annotation class UserReference

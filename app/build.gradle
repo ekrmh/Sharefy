@@ -94,7 +94,7 @@ dependencies {
     // Import the BoM for the Firebase platform
     implementation platform("com.google.firebase:firebase-bom:$rootProject.firebaseBomVersion")
 
-    implementation 'com.google.firebase:firebase-auth'
+    implementation 'com.google.firebase:firebase-auth-ktx'
     implementation 'com.google.firebase:firebase-firestore-ktx'
 
 

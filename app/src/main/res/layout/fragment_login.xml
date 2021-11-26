@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <import type="com.sharefy.android.utils.AppPreferences"/>
         <variable
             name="viewModel"
             type="com.sharefy.android.ui.fragment.login.LoginViewModel" />
@@ -49,6 +50,7 @@
                 style="@style/Sharefy.TextInputEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="@{AppPreferences.INSTANCE.email}"
                 android:inputType="textEmailAddress" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -69,6 +71,7 @@
                 style="@style/Sharefy.TextInputEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="@{AppPreferences.INSTANCE.password}"
                 android:inputType="textPassword" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -81,6 +84,7 @@
             android:fontFamily="@font/me_regular"
             android:buttonTint="@drawable/remember_me_button_tint"
             android:text="@string/remember_me"
+            android:checked="@{ AppPreferences.INSTANCE.email != null }"
             app:layout_constraintStart_toStartOf="@id/textFieldPassword"
             app:layout_constraintTop_toBottomOf="@id/textFieldPassword" />
 
@@ -105,7 +109,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="@string/register"
-            android:onClick="@{() -> viewModel.goToRegister()}"
+            android:onClick="@{() -> viewModel.goToRegister() }"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btnLogin"

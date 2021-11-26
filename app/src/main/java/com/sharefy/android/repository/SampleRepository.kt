@@ -30,7 +30,5 @@ class SampleRepositoryImp @Inject constructor(private val collection: Collection
             )
         )
     }
-
-
 }
 
