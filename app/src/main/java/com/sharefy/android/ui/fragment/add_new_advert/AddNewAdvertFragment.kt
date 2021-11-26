@@ -29,9 +29,7 @@ class AddNewAdvertFragment : BaseFragment<FragmentAddNewAdvertBinding, NewAdvert
 
     override fun onReady(savedInstanceState: Bundle?) {
         binding.spinnerProfile.adapter = spinnerAdapter
-        binding.spinnerProfile.setOnItemClickListener { adapterView, view, i, l ->
-            val item = viewModel.appSession.categories?.get(i)
-        }
+
 
     }
 
