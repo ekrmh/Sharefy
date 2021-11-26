@@ -20,7 +20,7 @@ abstract class BaseAdapter<BINDING : ViewDataBinding, T : ListAdapterItem>(
 
     protected var onItemBinding: ((BINDING) -> Unit)? = null
 
-    protected abstract fun bindItem(binding: BINDING, item: T)
+    protected abstract fun bindItem(binding: BINDING, item: T, position: Int)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<BINDING, T> {
         val binding = DataBindingUtil.inflate<BINDING>(
@@ -39,6 +39,7 @@ abstract class BaseAdapter<BINDING : ViewDataBinding, T : ListAdapterItem>(
         getItem(position)?.let { item ->
             holder.apply {
                 bindItem(item)
+                bindItem(holder.binding, item, position)
                 itemView.setOnClickListener {
                     onItemClickListener?.invoke(position, item)
                 }

@@ -24,4 +24,11 @@
     <string name="new_advert_extra_notes">Ilan ile ilgili ek notlar:</string>
     <string name="new_advert_required_items">Gerekli malzemeler:</string>
     <string name="new_advert_add">Ilani ekle</string>
+
+    <string name="validation_success" />
+    <string name="validation_error_empty">Lutfen bos alani doldurunuz!</string>
+    <string name="validation_error_necessary_items_count_missing">Giris degeri gerekli malzeme adeti icermelidir. (or. 10 kitap, 2 kazak)</string>
+    <string name="validation_error_necessary_items_empty">En az 1 adet malzeme girilmelidir. (or. 10 kitap, 2 kazak)</string>
+    <string name="item_necessary_item_sub1">Malzeme bilgisi</string>
+    <string name="item_necessary_item_sub2">Gerekli malzeme adeti</string>
 </resources>

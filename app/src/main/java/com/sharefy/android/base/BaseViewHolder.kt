@@ -10,7 +10,7 @@ class BaseViewHolder<BINDING : ViewDataBinding, T : ListAdapterItem>(val binding
     var onItemBinding: ((BINDING) -> Unit)? = null
 
     fun bindItem(item: T) {
-       // binding.setVariable(BR.item, item)
+        binding.setVariable(BR.item, item)
         onItemBinding?.invoke(binding)
         binding.executePendingBindings()
     }
