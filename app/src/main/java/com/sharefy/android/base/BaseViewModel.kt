@@ -22,7 +22,7 @@ import javax.inject.Inject
 abstract class BaseViewModel : ViewModel() {
 
     @Inject
-    protected lateinit var appSession: AppSession
+    lateinit var appSession: AppSession
 
     private val _navigation = MutableLiveData<Event<NavigationCommand>>()
     val navigation: LiveData<Event<NavigationCommand>> = _navigation

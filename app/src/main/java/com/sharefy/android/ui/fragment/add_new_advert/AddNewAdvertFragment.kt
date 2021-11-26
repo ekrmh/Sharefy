@@ -23,13 +23,15 @@ class AddNewAdvertFragment : BaseFragment<FragmentAddNewAdvertBinding, NewAdvert
         ArrayAdapter(
             requireContext(),
             android.R.layout.simple_spinner_dropdown_item,
-            requireContext().resources.getStringArray(R.array.Category)
+            viewModel.appSession.categories.orEmpty()
         )
     }
 
     override fun onReady(savedInstanceState: Bundle?) {
         binding.spinnerProfile.adapter = spinnerAdapter
-
+        binding.spinnerProfile.setOnItemClickListener { adapterView, view, i, l ->
+            val item = viewModel.appSession.categories?.get(i)
+        }
 
     }
 
