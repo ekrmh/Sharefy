@@ -2,7 +2,9 @@ package com.sharefy.android.ui.fragment.login
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.sharefy.android.application.AppSession
 import com.sharefy.android.base.BaseViewModel
+import com.sharefy.android.repository.CategoryRepository
 import com.sharefy.android.repository.UserRepository
 import com.sharefy.android.utils.AppPreferences
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -10,7 +12,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class LoginViewModel @Inject constructor(private val userRepository: UserRepository): BaseViewModel() {
+class LoginViewModel @Inject constructor(private val userRepository: UserRepository, private val categoryRepository: CategoryRepository): BaseViewModel() {
 
     private val _goToMain = MutableLiveData<Boolean>()
     val goToMain: LiveData<Boolean> get() = _goToMain
@@ -27,6 +29,14 @@ class LoginViewModel @Inject constructor(private val userRepository: UserReposit
                 if (rememberMe){
                     saveUserToLocal(email, password)
                 }
+            }
+        }
+    }
+
+    fun getCategories(){
+        bgScope.launch {
+            categoryRepository.getCategories().run(showLoaderView = false) {
+                appSession.categories = it
             }
         }
     }

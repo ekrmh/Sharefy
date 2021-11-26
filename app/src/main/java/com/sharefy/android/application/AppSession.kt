@@ -1,9 +1,11 @@
 package com.sharefy.android.application
 
+import com.sharefy.android.model.Category
 import com.sharefy.android.model.User
 
 
 class AppSession {
-    var user: User? = null
+    var categories: List<Category>?= null
+    var user: User?= null
 
 }

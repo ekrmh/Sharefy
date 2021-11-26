@@ -2,10 +2,7 @@ package com.sharefy.android.di
 
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.CollectionReference
-import com.sharefy.android.repository.SampleRepository
-import com.sharefy.android.repository.SampleRepositoryImp
-import com.sharefy.android.repository.UserRepository
-import com.sharefy.android.repository.UserRepositoryImp
+import com.sharefy.android.repository.*
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -25,4 +22,9 @@ object RepositoryModule {
     @Singleton
     fun provideUserRepository(auth: FirebaseAuth, @UserReference reference: CollectionReference): UserRepository =
         UserRepositoryImp(auth, reference)
+
+    @Provides
+    @Singleton
+    fun provideCategoryRepository(@CategoryReference reference: CollectionReference): CategoryRepository =
+        CategoryRepositoryImp(reference)
 }

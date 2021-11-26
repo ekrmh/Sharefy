@@ -17,6 +17,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding, LoginViewModel>() {
     override val viewModel: LoginViewModel by viewModels()
 
     override fun onReady(savedInstanceState: Bundle?) {
+        viewModel.getCategories()
 
         viewModel.goToMain.observeNonNull(this){
             if (it){

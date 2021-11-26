@@ -25,4 +25,9 @@ object FirestoreModule {
     @Singleton
     @UserReference
     fun provideUserCollection(firestore: FirebaseFirestore) = firestore.collection("User")
+
+    @Provides
+    @Singleton
+    @CategoryReference
+    fun provideCategoryCollection(firestore: FirebaseFirestore) = firestore.collection("Categories")
 }

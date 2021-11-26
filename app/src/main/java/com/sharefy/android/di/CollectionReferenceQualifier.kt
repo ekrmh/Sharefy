@@ -10,3 +10,7 @@ annotation class SampleReference
 @Qualifier
 @Retention(AnnotationRetention.BINARY)
 annotation class UserReference
+
+@Qualifier
+@Retention(AnnotationRetention.BINARY)
+annotation class CategoryReference
