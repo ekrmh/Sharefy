@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "918129963685",
+    "project_id": "sharefy-517cd",
+    "storage_bucket": "sharefy-517cd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:918129963685:android:286371beac9aa8db1a134c",
+        "android_client_info": {
+          "package_name": "com.sharefy.android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "918129963685-3eno035efb2i7bbimrg5eg3ro9tt46tt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJcrH5xJPwbBPRRq3CKYDBNs3Qf-yq1ZE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "918129963685-3eno035efb2i7bbimrg5eg3ro9tt46tt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
