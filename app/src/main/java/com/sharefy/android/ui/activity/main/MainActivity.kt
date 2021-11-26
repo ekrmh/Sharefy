@@ -8,6 +8,11 @@ import android.os.Bundle
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
+import androidx.fragment.app.FragmentContainerView
+import androidx.navigation.NavController
+import androidx.navigation.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupWithNavController
 import com.sharefy.android.R
 import com.sharefy.android.base.BaseActivity
 import com.sharefy.android.databinding.ActivityMainBinding
@@ -20,8 +25,11 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
 
     override val viewModel: MainViewModel by viewModels()
 
-    override val fragmentContainerId = R.id.navHostFragmentContainer
+    private val navController: NavController by lazy { findNavController(R.id.nav_host_fragment_container) }
 
+    private val appBarConfiguration by lazy {
+        AppBarConfiguration(navController.graph)
+    }
 
     @RequiresApi(Build.VERSION_CODES.N)
     val locationPermissionRequest = registerForActivityResult(
@@ -41,9 +49,22 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
     }
 
     override fun onReady(savedInstanceState: Bundle?) {
+        setupToolbarConfig()
+
         locationPermissionRequest.launch(arrayOf(
             Manifest.permission.ACCESS_FINE_LOCATION,
             Manifest.permission.ACCESS_COARSE_LOCATION))
+    }
+
+    private fun setupToolbarConfig() {
+        binding.navHostFragmentContainer.post {
+            binding.myToolbar.setupWithNavController(navController, appBarConfiguration)
+        }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        return navController.navigateUp()
+                || super.onSupportNavigateUp()
     }
 
     companion object {

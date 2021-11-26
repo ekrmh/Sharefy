@@ -8,5 +8,13 @@
     <fragment
         android:id="@+id/mapFragment"
         android:name="com.sharefy.android.ui.fragment.map.MapFragment"
-        android:label="MapFragment" />
+        android:label="MapFragment" >
+        <action
+            android:id="@+id/action_mapFragment_to_addNewAdvertFragment"
+            app:destination="@id/addNewAdvertFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addNewAdvertFragment"
+        android:name="com.sharefy.android.ui.fragment.add_new_advert.AddNewAdvertFragment"
+        android:label="AddNewAdvertFragment" />
 </navigation>

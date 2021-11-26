@@ -29,28 +29,6 @@ abstract class BaseActivity<BINDING : ViewDataBinding, VM : BaseViewModel> : App
 
     private val loaderView: LoaderView by lazy { LoaderView(this) }
 
-    abstract val fragmentContainerId: Int
-
-    protected val navController: NavController by lazy {
-        findNavController(fragmentContainerId)
-    }
-
-    lateinit var appBarConfiguration: AppBarConfiguration
-
-    protected fun withToolbar(container: FragmentContainerView, toolbar: androidx.appcompat.widget.Toolbar) {
-        container.post {
-            if (::appBarConfiguration.isInitialized.not())
-                appBarConfiguration = AppBarConfiguration(navController.graph)
-
-            toolbar.setupWithNavController(navController, appBarConfiguration)
-        }
-    }
-
-    override fun onSupportNavigateUp(): Boolean {
-        return navController.navigateUp()
-                || super.onSupportNavigateUp()
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, layoutId)

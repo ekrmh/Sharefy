@@ -14,10 +14,8 @@ class BeforeLoginActivity : BaseActivity<ActivityBeforeLoginBinding, BeforeLogin
 
     override val viewModel: BeforeLoginViewModel by viewModels()
 
-    override val fragmentContainerId = R.id.navHostFragmentContainer
-
     override fun onReady(savedInstanceState: Bundle?) {
-        withToolbar(binding.navHostFragmentContainer, binding.toolbar)
+        //onReady
     }
 
 }
