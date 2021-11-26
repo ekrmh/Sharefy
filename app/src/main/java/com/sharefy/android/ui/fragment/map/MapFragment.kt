@@ -41,7 +41,7 @@ class MapFragment : BaseFragment<FragmentMapBinding, MapViewModel>() {
     }
 
     private fun initMap() {
-        val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
+        val mapFragment = childFragmentManager.findFragmentById(R.id.map_view) as SupportMapFragment?
         mapFragment?.getMapAsync {
 
         }
