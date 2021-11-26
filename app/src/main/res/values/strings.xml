@@ -12,4 +12,11 @@
     <string name="remember_me">Beni Hatırla</string>
     <string name="warning">Uyarı</string>
     <string name="ok">Tamam</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="bottom_nav_menu_menu">Harita</string>
+    <string name="bottom_nav_menu_my_adverts">Ilanlarim</string>
+    <string name="bottom_nav_manu_open_adverts">Acik malzemeler</string>
+    <string name="bottom_nav_menu_profile">Profil</string>
+    <string name="content_add_new_advert">Add new Advert</string>
 </resources>

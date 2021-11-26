@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/mapFragment"
+        android:icon="@drawable/ic_map"
+        android:title="@string/bottom_nav_menu_menu" />
+
+    <item
+        android:id="@+id/advertFragment"
+        android:icon="@drawable/ic_receipt_long"
+        android:title="@string/bottom_nav_menu_my_adverts" />
+
+    <item
+        android:id="@+id/openAdverts"
+        android:icon="@drawable/ic_outline_shopping"
+        android:title="@string/bottom_nav_manu_open_adverts" />
+
+    <item
+        android:id="@+id/profileFragment"
+        android:icon="@drawable/ic_person"
+        android:title="@string/bottom_nav_menu_profile" />
+
+</menu>
