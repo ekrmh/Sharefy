@@ -20,4 +20,8 @@
     <string name="bottom_nav_menu_profile">Profil</string>
     <string name="content_add_new_advert">Add new Advert</string>
     <string name="new_advert_category">Ilan turu:</string>
+    <string name="new_advert_title">Ilan basligi:</string>
+    <string name="new_advert_extra_notes">Ilan ile ilgili ek notlar:</string>
+    <string name="new_advert_required_items">Gerekli malzemeler:</string>
+    <string name="new_advert_add">Ilani ekle</string>
 </resources>

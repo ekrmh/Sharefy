@@ -61,4 +61,5 @@
 
     <color name="divider_gray">#d9d9d9</color>
     <color name="screen_background_color">#F3F3F3</color>
+    <color name="inputLayoutHintColor">#95989A</color>
 </resources>

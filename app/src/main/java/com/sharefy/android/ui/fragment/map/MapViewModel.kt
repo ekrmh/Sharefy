@@ -7,4 +7,9 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MapViewModel @Inject constructor() : BaseViewModel() {
+
+
+    fun goToAddNewAdvertFragment(){
+        navigate(MapFragmentDirections.actionMapFragmentToAddNewAdvertFragment())
+    }
 }
