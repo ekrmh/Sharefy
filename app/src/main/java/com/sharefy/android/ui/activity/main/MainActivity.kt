@@ -18,6 +18,7 @@ import com.sharefy.android.R
 import com.sharefy.android.base.BaseActivity
 import com.sharefy.android.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
+import observeNonNull
 
 @AndroidEntryPoint
 class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
@@ -53,11 +54,16 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
 
     override fun onReady(savedInstanceState: Bundle?) {
         binding.bottomNavigationView.setupWithNavController(navController)
+        val badge = binding.bottomNavigationView.getOrCreateBadge(R.id.chatLobbyFragment)
         setupToolbarConfig()
 
         locationPermissionRequest.launch(arrayOf(
             Manifest.permission.ACCESS_FINE_LOCATION,
             Manifest.permission.ACCESS_COARSE_LOCATION))
+
+        viewModel.notificationShow.observeNonNull(this) { state ->
+                badge.isVisible = state
+        }
     }
 
     private fun setupToolbarConfig() {

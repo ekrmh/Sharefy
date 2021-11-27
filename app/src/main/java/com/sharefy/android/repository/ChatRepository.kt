@@ -18,19 +18,23 @@ interface ChatRepository {
 class ChatRepositoryImp @Inject constructor(private val collection: CollectionReference) :
     ChatRepository, BaseRepository() {
 
-    override suspend  fun createMessageRoom(chatLobby: ChatLobby) = addFlowCall(collection, chatLobby)
+    override suspend fun createMessageRoom(chatLobby: ChatLobby) =
+        addFlowCall(collection, chatLobby)
 
-    override suspend  fun getAllChats(userId: String) = safeFlowCall {
+    override suspend fun getAllChats(userId: String) = safeFlowCall {
         val response = collection.whereArrayContains("personIds", userId).get().await()
         response.toObjects(ChatLobby::class.java)
     }
 
-    override suspend  fun getChat(chatLobbyId: String): Flow<ChatLobby> = safeFlowCall {
+    override suspend fun getChat(chatLobbyId: String): Flow<ChatLobby> = safeFlowCall {
         val response = collection.document(chatLobbyId).get().await()
         response.toObject(ChatLobby::class.java)!!
     }
 
-    override fun sendMessage(docId: String, messages: MutableList<Chat>): Flow<Void> = updateFlowCall(collection, docId, mapOf("messages" to messages))
+    override fun sendMessage(docId: String, messages: MutableList<Chat>): Flow<Void> =
+        updateFlowCall(collection,
+            docId,
+            mapOf("messages" to messages, "lastUpdatedTime" to System.currentTimeMillis()))
 
 
 }

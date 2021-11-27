@@ -35,7 +35,8 @@ class ContributeViewModel @Inject constructor(
             personEmails = listOf(user.email, advert.contact),
             title = advert.title,
             category = advert.category,
-            messages = mutableListOf()
+            messages = mutableListOf(),
+            lastUpdatedTime = System.currentTimeMillis()
         )
         viewModelScope.launch {
             chatRepository.createMessageRoom(lobby).run {

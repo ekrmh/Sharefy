@@ -10,19 +10,21 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class ProfileViewModel @Inject constructor(private val userRepository: UserRepository) : BaseViewModel() {
+class ProfileViewModel @Inject constructor(private val userRepository: UserRepository) :
+    BaseViewModel() {
 
     private val _goToBeforeLogin = MutableLiveData<Boolean>()
     val goToBeforeLogin: LiveData<Boolean> get() = _goToBeforeLogin
 
 
-    fun signout(){
+    fun signout() {
         bgScope.launch {
             userRepository.signOut().run {
                 AppPreferences.email = ""
                 AppPreferences.password = ""
                 _goToBeforeLogin.postValue(true)
             }
+            appSession.lastUpdatedTime = 0L
         }
     }
 }

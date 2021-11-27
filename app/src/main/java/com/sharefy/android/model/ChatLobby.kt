@@ -8,7 +8,8 @@ class ChatLobby(
     val personEmails: List<String> = listOf(),
     val category: Category?=null,
     val title: String = "",
-    val messages: MutableList<Chat> = mutableListOf()
+    val messages: MutableList<Chat> = mutableListOf(),
+    val lastUpdatedTime : Long = 0L
 ):BaseModel(), ListAdapterItem {
     override val id: Long
         get() = 0

@@ -16,7 +16,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class ChatViewModel @Inject constructor(
-    private val chatRepository: ChatRepository
+    private val chatRepository: ChatRepository,
 ) : BaseViewModel() {
 
     lateinit var chatLobbyId: String
@@ -25,8 +25,10 @@ class ChatViewModel @Inject constructor(
     val chat: LiveData<ChatLobby> get() = _chat
 
     init {
+
         getChatsPeriodically()
     }
+
 
     fun sendMessage(message: String) {
         bgScope.launch {
@@ -51,7 +53,7 @@ class ChatViewModel @Inject constructor(
 
     private fun getChatsPeriodically(): Job {
         return bgScope.launch {
-            while(isActive) {
+            while (isActive) {
                 delay(5000)
                 getChat(false)
             }
