@@ -108,8 +108,8 @@
                         android:layout_height="wrap_content"
                         android:gravity="top"
                         android:inputType="textMultiLine"
-                        android:maxLines="7"
-                        android:minLines="7"
+                        android:maxLines="4"
+                        android:minLines="4"
                         android:nextFocusForward="@+id/inputLayout_extraItem"
                         android:singleLine="true"
                         tools:hint="Ektra notlar" />

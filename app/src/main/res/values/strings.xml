@@ -17,18 +17,17 @@
     <string name="bottom_nav_menu_my_adverts">Ilanlarim</string>
     <string name="bottom_nav_manu_open_adverts">Acik malzemeler</string>
     <string name="bottom_nav_menu_profile">Profil</string>
-    <string name="content_add_new_advert">Add new Advert</string>
-    <string name="new_advert_category">Ilan turu:</string>
-    <string name="new_advert_title">Ilan basligi:</string>
+    <string name="new_advert_category">Tür</string>
+    <string name="new_advert_title">Başlık</string>
 
-    <string name="new_advert_extra_notes">Ilan ile ilgili ek notlar:</string>
-    <string name="new_advert_required_items">Gerekli malzemeler:</string>
-    <string name="new_advert_add">Ilani ekle</string>
+    <string name="new_advert_extra_notes">Ek Notlar</string>
+    <string name="new_advert_required_items">İhtiyaç Listesi</string>
+    <string name="new_advert_add">Onayla</string>
 
     <string name="validation_success" />
-    <string name="validation_error_empty">Lutfen bos alani doldurunuz!</string>
-    <string name="validation_error_necessary_items_count_missing">Giris degeri gerekli malzeme adeti icermelidir. (or. 10 kitap, 2 kazak)</string>
-    <string name="validation_error_necessary_items_empty">En az 1 adet malzeme girilmelidir. (or. 10 kitap, 2 kazak)</string>
+    <string name="validation_error_empty">Lütfen boş alanı doldurunuz.</string>
+    <string name="validation_error_necessary_items_count_missing">Girşs değeri gerekli malzeme adeti içermelidir. (ör. 10 kitap, 2 kazak)</string>
+    <string name="validation_error_necessary_items_empty">En az 1 adet malzeme girilmelidir. (ör. 10 kitap, 2 kazak)</string>
     <string name="item_necessary_item_sub1">Malzeme bilgisi</string>
     <string name="item_necessary_item_sub2">Gerekli malzeme adeti</string>
 
