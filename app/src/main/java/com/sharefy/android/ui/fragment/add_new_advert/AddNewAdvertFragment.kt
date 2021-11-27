@@ -108,7 +108,7 @@ class AddNewAdvertFragment : BaseFragment<FragmentAddNewAdvertBinding, NewAdvert
         return NecessaryMaterials(count.toIntOrNull() ?: 0, information)
     }
 
-    override fun onDeleteMaterialClicked(item: NecessaryMaterials, position: Int) {
+    override fun onMaterialItemClicked(item: NecessaryMaterials, position: Int) {
         materialList.removeAt(position)
         necessaryMaterialsAdapter.updateData(materialList)
     }

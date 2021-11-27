@@ -12,6 +12,9 @@
         <action
             android:id="@+id/action_mapFragment_to_addNewAdvertFragment"
             app:destination="@id/addNewAdvertFragment" />
+        <action
+            android:id="@+id/action_mapFragment_to_contributeFragment"
+            app:destination="@id/contributeFragment" />
     </fragment>
     <fragment
         android:id="@+id/addNewAdvertFragment"
@@ -25,4 +28,12 @@
         android:id="@+id/myAdvertsFragment"
         android:name="com.sharefy.android.ui.fragment.my_adverts.MyAdvertsFragment"
         android:label="Ilanlarim" />
+    <fragment
+        android:id="@+id/contributeFragment"
+        android:name="com.sharefy.android.ui.fragment.contribute.ContributeFragment"
+        android:label="ContributeFragment" >
+        <argument
+            android:name="advert"
+            app:argType="com.sharefy.android.model.Advert" />
+    </fragment>
 </navigation>

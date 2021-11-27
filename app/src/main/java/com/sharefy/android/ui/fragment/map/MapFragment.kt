@@ -49,12 +49,13 @@ class MapFragment : BaseFragment<FragmentMapBinding, MapViewModel>(),
 
     private var markerCenter: Marker? = null
 
-
     private val markerClickListener = GoogleMap.OnMarkerClickListener { marker ->
         when (marker.tag) {
             is Advert -> {
-                MarkerDetailBottomSheetFragment(marker.tag as Advert) {
+                MarkerDetailBottomSheetFragment(marker.tag as Advert, closeCallback = {
                     markerCenter?.showInfoWindow()
+                }) { advert ->
+                    viewModel.goToContributeFragment(advert)
                 }.show(parentFragmentManager, "Marker Detail Bottom Sheet Fragment")
             }
             is LatLng -> {

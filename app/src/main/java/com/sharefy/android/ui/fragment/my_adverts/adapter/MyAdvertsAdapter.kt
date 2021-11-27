@@ -7,6 +7,7 @@ import com.sharefy.android.model.Advert
 
 class MyAdvertsAdapter(
     private val adverts: List<Advert>,
+    private val advertsClickListener: MyAdvertsClickListener
 ) : BaseAdapter<ItemAdvertsBinding, Advert>(adverts) {
 
     override val layoutId: Int = R.layout.item_adverts
@@ -30,4 +31,9 @@ class MyAdvertsAdapter(
 
         return ((completedNumber.toFloat() / totalNumber.toFloat()) * 100).toInt()
     }
+}
+
+interface MyAdvertsClickListener {
+    fun onApprovedContributionClicked(advert: Advert)
+    fun onPendingContributionClicked(advert: Advert)
 }

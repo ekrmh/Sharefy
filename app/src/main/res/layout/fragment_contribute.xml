@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.sharefy.android.ui.fragment.contribute.ContributeViewModel" />
+
+
+        <variable
+            name="advert"
+            type="com.sharefy.android.model.Advert" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/screen_background_color"
+        tools:context=".ui.fragment.contribute.ContributeFragment">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/bg_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:background="@color/white"
+            app:cardCornerRadius="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/textView_materialName"
+                    style="@style/TextAppearance.Sharefy.Subtitle3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@{advert.title}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Ilan basligi" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/textView_materialNameSubTit"
+                    style="@style/TextAppearance.Sharefy.Subtitle4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Ilan basligi"
+                    app:layout_constraintStart_toStartOf="@+id/textView_materialName"
+                    app:layout_constraintTop_toBottomOf="@+id/textView_materialName" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/textView_materialCount"
+                    style="@style/TextAppearance.Sharefy.Subtitle3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@{advert.additionalInformation}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView_materialNameSubTit"
+                    tools:text="Ilan ek bilgisi" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/textView_materialCountSubTit"
+                    style="@style/TextAppearance.Sharefy.Subtitle4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Ilan ek bilgisi"
+                    app:layout_constraintStart_toStartOf="@+id/textView_materialCount"
+                    app:layout_constraintTop_toBottomOf="@+id/textView_materialCount" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/textView_category"
+                    style="@style/TextAppearance.Sharefy.Subtitle3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@{advert.category.name}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView_materialCountSubTit"
+                    tools:text="Kategori" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/textView_categorySubTit"
+                    style="@style/TextAppearance.Sharefy.Subtitle4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:text="Kategori"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/textView_category"
+                    app:layout_constraintTop_toBottomOf="@+id/textView_category" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/textView_requiredItems"
+            style="@style/TextAppearance.Sharefy.Subtitle3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/advert_contribution_required_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bg_info" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView_materials"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView_requiredItems"
+            tools:listitem="@layout/item_advert_contribute" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

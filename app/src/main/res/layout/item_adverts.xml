@@ -7,6 +7,10 @@
         <variable
             name="advert"
             type="com.sharefy.android.model.Advert" />
+
+        <variable
+            name="myAdvertClickListener"
+            type="com.sharefy.android.ui.fragment.my_adverts.adapter.MyAdvertsClickListener" />
     </data>
 
 
@@ -90,7 +94,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
-                android:backgroundTint="@color/white"
+                android:background="@color/screen_background_color"
                 android:max="100"
                 android:progress="90"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -102,9 +106,7 @@
                 style="@style/TextAppearance.Sharefy.Subtitle4"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
                 android:text="@string/advert_detail_advert_progress"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/progress_advert"
                 app:layout_constraintTop_toBottomOf="@+id/progress_advert" />
 
@@ -117,6 +119,33 @@
                 app:layout_constraintEnd_toEndOf="@+id/progress_advert"
                 app:layout_constraintTop_toBottomOf="@+id/progress_advert"
                 tools:text="%90" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/progress_approvedContribution"
+                style="@style/TextAppearance.Sharefy.Subtitle4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="16dp"
+                android:onClick="@{() -> myAdvertClickListener.onApprovedContributionClicked(advert)}"
+                android:text="@string/advert_detail_approved"
+                android:textColor="@color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/progress_advert"
+                app:layout_constraintTop_toBottomOf="@+id/progress_advertSubTit" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/progress_pendingContribution"
+                style="@style/TextAppearance.Sharefy.Subtitle4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:onClick="@{() -> myAdvertClickListener.onPendingContributionClicked(advert)}"
+                android:text="@string/advert_detail_pending"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/progress_approvedContribution" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </com.google.android.material.card.MaterialCardView>

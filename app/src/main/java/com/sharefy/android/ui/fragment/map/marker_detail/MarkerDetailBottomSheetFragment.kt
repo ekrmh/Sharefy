@@ -1,5 +1,6 @@
 package com.sharefy.android.ui.fragment.map.marker_detail
 
+import android.accessibilityservice.AccessibilityButtonController
 import android.annotation.SuppressLint
 import android.content.DialogInterface
 import android.os.Bundle
@@ -15,7 +16,8 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class MarkerDetailBottomSheetFragment(
     private val advertInf: Advert,
-    private val closeCallback : () -> Unit
+    private val closeCallback : () -> Unit,
+    private val buttonCallback : (Advert) -> Unit
 ) : BaseBottomSheetDialogFragment<BottomSheetAdvertDetailBinding, MapViewModel>() {
 
     override val layoutId: Int = R.layout.bottom_sheet_advert_detail
@@ -25,6 +27,11 @@ class MarkerDetailBottomSheetFragment(
     override fun init(savedInstanceState: Bundle?) {
         binding.advert = advertInf
         initProgressStatus()
+
+        binding.buttonGoToDetail.setOnClickListener {
+            buttonCallback.invoke(advertInf)
+            dismiss()
+        }
     }
 
     @SuppressLint("SetTextI18n")

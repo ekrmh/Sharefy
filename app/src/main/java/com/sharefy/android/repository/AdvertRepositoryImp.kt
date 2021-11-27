@@ -14,6 +14,7 @@ interface AdvertRepository {
     suspend fun postNewAdvert(newAdvert: Advert): Flow<Void>
     suspend fun getAdverts(): Flow<List<Advert>>
     suspend fun getMyAdverts(userId: String): Flow<List<Advert>>
+    suspend fun updateAdvertMaterial(docId: String, map : Map<String, Any>): Flow<Void>
 }
 
 class AdvertRepositoryImp @Inject constructor(
@@ -37,4 +38,9 @@ class AdvertRepositoryImp @Inject constructor(
             }
         }
     }
+
+    override suspend fun updateAdvertMaterial(docId: String, map: Map<String, Any>): Flow<Void> {
+        return updateFlowCall(advertCollection, docId, map)
+    }
+
 }

@@ -34,4 +34,9 @@ class MapViewModel @Inject constructor(
         navigate(MapFragmentDirections.actionMapFragmentToAddNewAdvertFragment(latLng))
     }
 
+    fun goToContributeFragment(advert: Advert) {
+        navigate(MapFragmentDirections.actionMapFragmentToContributeFragment(advert))
+    }
+
+
 }
