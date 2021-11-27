@@ -15,7 +15,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="bottom_nav_menu_menu">Keşfet</string>
     <string name="bottom_nav_menu_my_adverts">İlanlarım</string>
-    <string name="bottom_nav_manu_open_adverts">Acik malzemeler</string>
+    <string name="bottom_nav_manu_open_adverts">Mesajlarım</string>
     <string name="bottom_nav_menu_profile">Profil</string>
     <string name="new_advert_category">Tür</string>
     <string name="new_advert_title">Başlık</string>
@@ -61,4 +61,5 @@
     <string name="advert_detail_finish">Yardım başarıyla toplandı</string>
     <string name="item_neccessary_waiting_approvement">Onay bekleniyor</string>
     <string name="new_advert_button_add">Ekle</string>
+    <string name="messages">Mesajlarım</string>
 </resources>

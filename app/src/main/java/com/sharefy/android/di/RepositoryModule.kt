@@ -32,4 +32,9 @@ object RepositoryModule {
     @Singleton
     fun provideAdvertRepository(@AdvertReference reference: CollectionReference): AdvertRepository =
         AdvertRepositoryImp(reference)
+
+    @Provides
+    @Singleton
+    fun provideChatRepository(@ChatReference reference: CollectionReference): ChatRepository =
+        ChatRepositoryImp(reference)
 }

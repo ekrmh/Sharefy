@@ -3,8 +3,6 @@ package com.sharefy.android.repository
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.CollectionReference
-import com.google.firebase.firestore.DocumentReference
-import com.google.firebase.firestore.QuerySnapshot
 import com.sharefy.android.base.BaseRepository
 import com.sharefy.android.model.User
 import kotlinx.coroutines.flow.Flow

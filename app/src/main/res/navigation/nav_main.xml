@@ -18,6 +18,9 @@
         <action
             android:id="@+id/action_mapFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_mapFragment_to_chatLobbyFragment"
+            app:destination="@id/chatLobbyFragment" />
     </fragment>
     <fragment
         android:id="@+id/addNewAdvertFragment"
@@ -51,9 +54,28 @@
         <action
             android:id="@+id/action_contributeFragment_to_addNewAdvertFragment"
             app:destination="@id/addNewAdvertFragment" />
+        <action
+            android:id="@+id/action_contributeFragment_to_chatLobbyFragment"
+            app:destination="@id/chatLobbyFragment" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.sharefy.android.ui.fragment.profile.ProfileFragment"
         android:label="@string/my_profile" />
+    <fragment
+        android:id="@+id/chatLobbyFragment"
+        android:name="com.sharefy.android.ui.fragment.chat_lobby.ChatLobbyFragment"
+        android:label="@string/messages" >
+        <action
+            android:id="@+id/action_chatLobbyFragment_to_chatFragment"
+            app:destination="@id/chatFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/chatFragment"
+        android:name="com.sharefy.android.ui.fragment.chat.ChatFragment"
+        android:label="@string/messages">
+        <argument
+            android:name="chatLobbyId"
+            app:argType="string" />
+    </fragment>
 </navigation>
