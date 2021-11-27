@@ -80,7 +80,6 @@
                 app:srcCompat="@drawable/ic_baseline_add_circle_outline_24" />
 
 
-
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </com.google.android.material.card.MaterialCardView>

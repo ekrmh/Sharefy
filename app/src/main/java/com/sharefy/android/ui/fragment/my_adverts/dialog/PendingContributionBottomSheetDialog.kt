@@ -15,7 +15,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class PendingContributionBottomSheetDialog(
     private val advert: Advert,
-    private val ind: Int,
+    private val onDismiss: () -> Unit,
 ) : BaseBottomSheetDialogFragment<BottomSheetPendingBinding, MyAdvertsViewModel>(),
     PendingContClickListener {
 
@@ -51,6 +51,7 @@ class PendingContributionBottomSheetDialog(
 
                     if (allList.isEmpty()){
                         dismiss()
+                        onDismiss.invoke()
                     }
                 }
             }

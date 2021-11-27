@@ -47,9 +47,10 @@ class MyAdvertsFragment : BaseFragment<FragmentMyAdvertsBinding, MyAdvertsViewMo
             return
         }
         PendingContributionBottomSheetDialog(
-            advert,
-            position
-        ).show(
+            advert
+        ) {
+            viewModel.fetchMyAdverts(viewModel.appSession.user?.docId ?: "")
+        }.show(
             parentFragmentManager, "TAG"
         )
     }
