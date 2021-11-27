@@ -1,5 +1,6 @@
 package com.sharefy.android.base
 
+import android.content.ActivityNotFoundException
 import android.os.Bundle
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
@@ -15,6 +16,12 @@ import com.sharefy.android.component.loaderview.LoaderView
 import com.sharefy.android.component.loaderview.LoaderViewModel
 import observeNonNull
 import showPopup
+import android.widget.Toast
+
+import android.content.Intent
+
+
+
 
 abstract class BaseActivity<BINDING : ViewDataBinding, VM : BaseViewModel> : AppCompatActivity() {
 
@@ -72,6 +79,16 @@ abstract class BaseActivity<BINDING : ViewDataBinding, VM : BaseViewModel> : App
             it.getContentIfNotHandled()?.let { popupModel ->
                 showPopup(popupModel)
             }
+        }
+    }
+
+    fun openMailApp(){
+        try {
+            val intent = Intent(Intent.ACTION_MAIN)
+            intent.addCategory(Intent.CATEGORY_APP_EMAIL)
+            this.startActivity(intent)
+        } catch (e: ActivityNotFoundException) {
+
         }
     }
 }

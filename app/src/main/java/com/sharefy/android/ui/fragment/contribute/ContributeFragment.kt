@@ -35,15 +35,21 @@ class ContributeFragment : BaseFragment<FragmentContributeBinding, ContributeVie
         binding.apply {
             advert = args.advert
             recyclerViewMaterials.adapter = necessaryMaterialsAdapter
+
+            imageviewEmail.setOnClickListener {
+                baseActivity?.openMailApp()
+            }
         }
         necessaryMaterialsAdapter.updateData(args.advert.necessaryMaterial)
 
     }
 
     override fun onMaterialItemClicked(item: NecessaryMaterials, position: Int) {
-        ContributeDialog(requireContext(),
+        ContributeDialog(
+            requireContext(),
             userId = viewModel.appSession.user?.docId ?: "",
-            necessaryMaterials = item) { updatedMaterial ->
+            necessaryMaterials = item
+        ) { updatedMaterial ->
 
             val ind = args.advert.necessaryMaterial.indexOf(item)
             args.advert.necessaryMaterial[ind] = updatedMaterial

@@ -53,4 +53,5 @@
     <string name="warning_help">İhtiyaçtan fazla miktarda yardım yapılamaz.</string>
     <string name="input_count">Adet girin: (Gerekli adet sayisi: %s)</string>
     <string name="input_count2">"Toplanan ihtiyaç adeti: %s"</string>
+    <string name="contact">İletişim</string>
 </resources>

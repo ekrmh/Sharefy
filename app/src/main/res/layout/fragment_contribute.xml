@@ -78,6 +78,36 @@
                     app:layout_constraintTop_toBottomOf="@+id/textView_materialCount" />
 
                 <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/textView_materialContact"
+                    style="@style/TextAppearance.Sharefy.Subtitle3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@{advert.contact}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView_materialCountSubTit"
+                    tools:text="@string/new_advert_extra_notes" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/textView_materialContactSubTit"
+                    style="@style/TextAppearance.Sharefy.Subtitle4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/contact"
+                    app:layout_constraintStart_toStartOf="@+id/textView_materialContact"
+                    app:layout_constraintTop_toBottomOf="@+id/textView_materialContact" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/imageview_Email"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginEnd="16dp"
+                    app:layout_constraintBottom_toBottomOf="@id/textView_materialContactSubTit"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/textView_materialContact"
+                    app:srcCompat="@drawable/ic_baseline_email_24" />
+
+                <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/textView_category"
                     style="@style/TextAppearance.Sharefy.Subtitle3"
                     android:layout_width="0dp"
@@ -85,7 +115,7 @@
                     android:text="@{advert.category.name}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView_materialCountSubTit"
+                    app:layout_constraintTop_toBottomOf="@+id/textView_materialContactSubTit"
                     tools:text="Kategori" />
 
                 <com.google.android.material.textview.MaterialTextView
@@ -98,6 +128,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/textView_category"
                     app:layout_constraintTop_toBottomOf="@+id/textView_category" />
+
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>

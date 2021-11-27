@@ -12,6 +12,7 @@ data class Advert(
     val additionalInformation: String = "",
     val category: Category = Category(),
     val necessaryMaterial: MutableList<NecessaryMaterials> = mutableListOf(),
+    var contact: String= "",
     val lat: Double = 0.0,
     val long: Double = 0.0,
 ) : BaseModel(), ListAdapterItem, Parcelable {
