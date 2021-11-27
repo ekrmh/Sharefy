@@ -19,6 +19,9 @@ annotation class CategoryReference
 @Retention(AnnotationRetention.BINARY)
 annotation class AdvertReference
 
+@Qualifier
+@Retention(AnnotationRetention.BINARY)
+annotation class CompletedAdvert
 
 @Qualifier
 @Retention(AnnotationRetention.BINARY)

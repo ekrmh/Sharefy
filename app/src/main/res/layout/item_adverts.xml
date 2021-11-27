@@ -117,18 +117,16 @@
                 tools:text="%90" />
 
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/progress_approvedContribution"
+                android:id="@+id/progress_finishAdvert"
                 style="@style/TextAppearance.Sharefy.Subtitle4"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:layout_marginBottom="16dp"
-                android:text="@string/advert_detail_approved"
-                android:textColor="@color/black"
-                android:visibility="invisible"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:text="@string/advert_detail_finish"
+                android:textColor="@color/leaf"
+                android:visibility="gone"
                 app:layout_constraintStart_toStartOf="@+id/progress_advert"
-                app:layout_constraintTop_toBottomOf="@+id/progress_advertSubTit" />
+                app:layout_constraintBottom_toBottomOf="@+id/progress_pendingContribution"
+                app:layout_constraintTop_toTopOf="@+id/progress_pendingContribution" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/progress_pendingContribution"
@@ -138,8 +136,11 @@
                 android:layout_marginEnd="16dp"
                 android:text="@string/advert_detail_pending"
                 android:textColor="@color/black"
+                android:layout_marginTop="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginBottom="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/progress_approvedContribution" />
+                app:layout_constraintTop_toBottomOf="@+id/progress_advertSubTit" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

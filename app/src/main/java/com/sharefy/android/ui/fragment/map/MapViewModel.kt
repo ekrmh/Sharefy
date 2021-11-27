@@ -24,7 +24,11 @@ class MapViewModel @Inject constructor(
         viewModelScope.launch {
             advertRepository.getAdverts()
                 .run { list: List<Advert>? ->
-                    list?.let { _advertList.value = it }
+                    list?.let {
+                        _advertList.value = it.filter { advert ->
+                            calculateProgressStatus(advert) != 100
+                        }
+                    }
                 }
         }
     }
@@ -36,6 +40,14 @@ class MapViewModel @Inject constructor(
 
     fun goToContributeFragment(advert: Advert) {
         navigate(MapFragmentDirections.actionMapFragmentToContributeFragment(advert))
+    }
+
+    private fun calculateProgressStatus(advert: Advert): Int {
+        val totalNumber = advert.necessaryMaterial.sumOf { it.count }
+        val completedNumber =
+            advert.necessaryMaterial.sumOf { it.approvedContribution.sumOf { it.count } }
+
+        return ((completedNumber.toFloat() / totalNumber.toFloat()) * 100).toInt()
     }
 
 

@@ -66,15 +66,28 @@
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/button_contribute"
+                visibleIf="@{item.updatable}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
-                visibleIf="@{item.updatable}"
                 android:tint="@color/leaf"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/ic_baseline_add_circle_outline_24" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/textView_pendingInformation"
+                style="@style/TextAppearance.Sharefy.Subtitle4"
+                visibleIf="@{!item.updatable}"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:text="@string/item_neccessary_waiting_approvement"
+                android:textColor="@color/leaf"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

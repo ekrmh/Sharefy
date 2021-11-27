@@ -63,6 +63,7 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 style="@style/EditTextLogin"
+                android:id="@+id/editText_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:nextFocusForward="@+id/textFieldPassword"
@@ -100,6 +101,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 style="@style/EditTextLogin"
                 android:layout_width="match_parent"
+                android:id="@+id/editText_password"
                 android:layout_height="wrap_content"
                 android:imeOptions="actionDone"
                 android:inputType="textPassword"
