@@ -34,7 +34,7 @@ class ChatRepositoryImp @Inject constructor(private val collection: CollectionRe
     override fun sendMessage(docId: String, messages: MutableList<Chat>): Flow<Void> =
         updateFlowCall(collection,
             docId,
-            mapOf("messages" to messages, "lastUpdatedTime" to System.currentTimeMillis()))
+            mapOf("messages" to messages))
 
 
 }

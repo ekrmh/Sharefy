@@ -19,7 +19,7 @@ class MainViewModel @Inject constructor(
 
     val notificationShow = MutableLiveData<Boolean>()
 
-    fun disableNotification(){
+    fun disableNotification() {
         notificationShow.postValue(false)
     }
 
@@ -28,16 +28,17 @@ class MainViewModel @Inject constructor(
             chatRepository.getAllChats(appSession.user!!.docId)
                 .run(showLoaderView = false) { list ->
                     val result = list?.filter {
-                        it.lastUpdatedTime > appSession.lastUpdatedTime
+                        it.updateTimeList[appSession.user!!.docId]!! > appSession.lastUpdatedTime
                     }
                     val updatedTime = result?.maxByOrNull {
-                        it.lastUpdatedTime
+                        it.updateTimeList[appSession.user!!.docId]!!
                     }
                     if (result != null) {
                         if (result.isNotEmpty()) {
                             notificationShow.postValue(true)
                             appSession.apply {
-                                lastUpdatedTime = updatedTime?.lastUpdatedTime ?: 0L
+                                lastUpdatedTime =
+                                    updatedTime?.updateTimeList?.get(appSession.user!!.docId)!!
                             }
                         }
                     }
