@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="viewModel"
             type="com.sharefy.android.ui.fragment.profile.ProfileViewModel" />
@@ -27,7 +28,6 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_margin="16dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -69,23 +69,35 @@
                     app:layout_constraintStart_toStartOf="@+id/textView_materialCount"
                     app:layout_constraintTop_toBottomOf="@+id/textView_materialCount" />
 
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/textView_logout"
+                    style="@style/TextAppearance.Sharefy.Subtitle3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="22dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="@string/signout"
+                    android:onClick="@{() -> viewModel.signout()}"
+                    app:layout_constraintEnd_toStartOf="@+id/button_signout"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView_materialCountSubTit" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/button_signout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:tint="@color/indigo_blue"
+                    android:onClick="@{() -> viewModel.signout()}"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView_logout"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/textView_logout"
+                    app:srcCompat="@drawable/ic_baseline_exit_to_app_24" />
+
+
             </androidx.constraintlayout.widget.ConstraintLayout>
         </com.google.android.material.card.MaterialCardView>
-
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnSignout"
-            style="@style/ButtonAppearance.Sharefy.Normal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="32dp"
-            android:text="@string/signout"
-            android:onClick="@{() -> viewModel.signout()}"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/bg_info"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

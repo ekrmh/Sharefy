@@ -23,17 +23,28 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.15" />
+            app:layout_constraintGuide_percent="0.11" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/imageView_appIcon"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:srcCompat="@drawable/ic_app_icon"
+            app:layout_constraintDimensionRatio="4:1"
+            app:layout_constraintTop_toTopOf="@+id/guidelineTop"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/textView_appName"
             style="@style/TextAppearance.Sharefy.Headline4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="28sp"
             android:text="Sharefy"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/guidelineTop" />
+            app:layout_constraintTop_toBottomOf="@+id/imageView_appIcon" />
 
 
         <com.google.android.material.textview.MaterialTextView
@@ -42,7 +53,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
-            android:layout_marginTop="42dp"
+            android:layout_marginTop="32dp"
             android:text="@string/email"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView_appName" />
