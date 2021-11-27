@@ -28,8 +28,8 @@
     <string name="validation_error_empty">Lütfen boş alanı doldurunuz.</string>
     <string name="validation_error_necessary_items_count_missing">Girşs değeri gerekli malzeme adeti içermelidir. (ör. 10 kitap, 2 kazak)</string>
     <string name="validation_error_necessary_items_empty">En az 1 adet malzeme girilmelidir. (ör. 10 kitap, 2 kazak)</string>
-    <string name="item_necessary_item_sub1">Malzeme bilgisi</string>
-    <string name="item_necessary_item_sub2">Gerekli malzeme adeti</string>
+    <string name="item_necessary_item_sub1">İhtiyaç Adı</string>
+    <string name="item_necessary_item_sub2">Adet</string>
 
     <string name="advert_detail_advert_sub_tit">Ilan basligi</string>
     <string name="advert_detail_advert_extra_notes_sub_tit">Ek notlar</string>
