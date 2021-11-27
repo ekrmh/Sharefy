@@ -12,7 +12,6 @@
     <string name="remember_me">Beni Hatırla</string>
     <string name="warning">Uyarı</string>
     <string name="ok">Tamam</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="bottom_nav_menu_menu">Harita</string>
     <string name="bottom_nav_menu_my_adverts">Ilanlarim</string>
@@ -35,9 +34,9 @@
 
     <string name="advert_detail_advert_sub_tit">Ilan basligi</string>
     <string name="advert_detail_advert_extra_notes_sub_tit">Ek notlar</string>
-    <string name="advert_detail_advert_progress">Tamamlanma orani</string>
+    <string name="advert_detail_advert_progress">Tamamlanma oranı</string>
     <string name="advert_detail_advert_category">Kategori</string>
     <string name="advert_detail_go_detail">Detaya git</string>
-    <string name="string_register">Hesabin yok mu? <font color='#FF3700B3'><u>Buraya tiklayarak hesap olustur!</u></font></string>
+    <string name="string_register">Hesabın yok mu? <font color='#FF3700B3'><u>Buraya tıklayarak hesap oluştur!</u></font></string>
     <string name="add_new_advert">Yeni bir ilan eklemek icin buraya tıklayın</string>
 </resources>
