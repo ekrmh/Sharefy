@@ -24,7 +24,7 @@ class ContributionMaterialAdapter(
     ) {
         binding.textViewMaterialCount.text = item.count.toString()
         binding.item = item
-        binding.buttonContribute.visibility = if (isOwner) View.VISIBLE else View.GONE
+        binding.buttonContribute.visibility = if (isOwner) View.GONE else View.VISIBLE
         binding.buttonContribute.setOnClickListener {
             necessaryMaterialsAdapterClickListener.onMaterialItemClicked(
                 item, position
