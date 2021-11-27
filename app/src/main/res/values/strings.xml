@@ -49,4 +49,5 @@
     <string name="signout">Çıkış yap</string>
     <string name="contribution_approve">Onayla</string>
     <string name="warning_empty">Onaylanmayı bekleyen yardım bulunmamaktadır.</string>
+    <string name="all">Hepsi</string>
 </resources>

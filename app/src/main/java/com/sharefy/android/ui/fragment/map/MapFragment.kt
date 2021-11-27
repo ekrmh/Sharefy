@@ -31,7 +31,11 @@ import androidx.appcompat.content.res.AppCompatResources.getDrawable
 import android.graphics.drawable.BitmapDrawable
 
 import android.graphics.Bitmap
+import android.view.View
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import androidx.core.graphics.drawable.toBitmap
+import com.sharefy.android.model.Category
 
 
 @AndroidEntryPoint
@@ -48,6 +52,23 @@ class MapFragment : BaseFragment<FragmentMapBinding, MapViewModel>(),
     private lateinit var map: GoogleMap
 
     private var markerCenter: Marker? = null
+
+    val items by lazy {
+        mutableListOf<Category>().apply{
+            add(Category(name = getString(R.string.all)).apply {
+                docId = "-1"
+            })
+            addAll(viewModel.appSession.categories.orEmpty())
+        }
+    }
+
+    private val spinnerAdapter by lazy {
+        ArrayAdapter(
+            requireContext(),
+            android.R.layout.simple_spinner_dropdown_item,
+            items
+        )
+    }
 
     private val markerClickListener = GoogleMap.OnMarkerClickListener { marker ->
         when (marker.tag) {
@@ -68,6 +89,22 @@ class MapFragment : BaseFragment<FragmentMapBinding, MapViewModel>(),
 
 
     override fun onReady(savedInstanceState: Bundle?) {
+        binding.spinnerCategory.adapter = spinnerAdapter
+        binding.spinnerCategory.onItemSelectedListener =
+            object : AdapterView.OnItemSelectedListener {
+                override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+                    val category = items[p2]
+
+                    map.clear()
+                    initCenterMarker()
+                    val list = viewModel.advertList.value ?: return
+                    addMarkersForAdverts(if (category.docId == "-1") list else list.filter { it.category.docId == category.docId })
+                }
+
+                override fun onNothingSelected(p0: AdapterView<*>?) {
+                }
+
+            }
         initMap()
 
         viewModel.advertList.observeNonNull(this) { list ->
