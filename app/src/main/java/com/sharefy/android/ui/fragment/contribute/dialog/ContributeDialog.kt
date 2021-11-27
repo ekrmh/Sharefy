@@ -44,7 +44,7 @@ class ContributeDialog(
             val addedNumber = necessaryMaterials.completedNumber + input.toIntOrNull()!!
 
             if (addedNumber > necessaryMaterials.count) {
-                context.toast("Lutfen gerekli malzeme adedini asmayin!")
+                context.toast(context.getString(R.string.warning_help))
                 return@setOnClickListener
             }
 
