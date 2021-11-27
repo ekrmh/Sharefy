@@ -21,6 +21,7 @@
     <string name="content_add_new_advert">Add new Advert</string>
     <string name="new_advert_category">Ilan turu:</string>
     <string name="new_advert_title">Ilan basligi:</string>
+
     <string name="new_advert_extra_notes">Ilan ile ilgili ek notlar:</string>
     <string name="new_advert_required_items">Gerekli malzemeler:</string>
     <string name="new_advert_add">Ilani ekle</string>
@@ -31,4 +32,11 @@
     <string name="validation_error_necessary_items_empty">En az 1 adet malzeme girilmelidir. (or. 10 kitap, 2 kazak)</string>
     <string name="item_necessary_item_sub1">Malzeme bilgisi</string>
     <string name="item_necessary_item_sub2">Gerekli malzeme adeti</string>
+
+    <string name="advert_detail_advert_sub_tit">Ilan basligi</string>
+    <string name="advert_detail_advert_extra_notes_sub_tit">Ek notlar</string>
+    <string name="advert_detail_advert_progress">Tamamlanma orani</string>
+    <string name="advert_detail_advert_category">Kategori</string>
+    <string name="advert_detail_go_detail">Detaya git</string>
+    <string name="string_register">Hesabin yok mu? <font color='#FF3700B3'><u>Buraya tiklayarak hesap olustur!</u></font></string>
 </resources>

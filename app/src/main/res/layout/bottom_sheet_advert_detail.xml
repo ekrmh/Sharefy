@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <data>
+
+        <variable
+            name="advert"
+            type="com.sharefy.android.model.Advert" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <View
+                android:id="@+id/view_bottomSheetTopView"
+                style="@style/CustomBottomSheetTopView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/textView_advertTitle"
+                style="@style/TextAppearance.Sharefy.Subtitle3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="32dp"
+                android:text="@{advert.title}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view_bottomSheetTopView"
+                tools:text="Advert title" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/textView_advertTitleSubTit"
+                style="@style/TextAppearance.Sharefy.Subtitle4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/advert_detail_advert_sub_tit"
+                app:layout_constraintStart_toStartOf="@+id/textView_advertTitle"
+                app:layout_constraintTop_toBottomOf="@+id/textView_advertTitle" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/textView_advertExtraNotes"
+                style="@style/TextAppearance.Sharefy.Subtitle3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="32dp"
+                android:ellipsize="end"
+                android:text="@{advert.additionalInformation}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView_advertTitleSubTit"
+                tools:text="Advert extra notes" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/textView_advertExtraNotesSubTit"
+                style="@style/TextAppearance.Sharefy.Subtitle4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/advert_detail_advert_extra_notes_sub_tit"
+                app:layout_constraintStart_toStartOf="@+id/textView_advertExtraNotes"
+                app:layout_constraintTop_toBottomOf="@+id/textView_advertExtraNotes" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/textView_category"
+                style="@style/TextAppearance.Sharefy.Subtitle3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="32dp"
+                android:text="@{advert.category.name}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView_advertExtraNotesSubTit"
+                tools:text="Category" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/textView_categorySubTit"
+                style="@style/TextAppearance.Sharefy.Subtitle4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/advert_detail_advert_category"
+                app:layout_constraintStart_toStartOf="@+id/textView_category"
+                app:layout_constraintTop_toBottomOf="@+id/textView_category" />
+
+            <ProgressBar
+                android:id="@+id/progress_advert"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="32dp"
+                android:backgroundTint="@color/white"
+                android:max="100"
+                android:progress="90"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView_categorySubTit" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/progress_advertSubTit"
+                style="@style/TextAppearance.Sharefy.Subtitle4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/advert_detail_advert_progress"
+                app:layout_constraintStart_toStartOf="@+id/progress_advert"
+                app:layout_constraintTop_toBottomOf="@+id/progress_advert" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/textView_progressNumber"
+                style="@style/TextAppearance.Sharefy.Subtitle4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="@+id/progress_advert"
+                app:layout_constraintTop_toBottomOf="@+id/progress_advert"
+                tools:text="%90" />
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_goToDetail"
+                style="@style/ButtonAppearance.Sharefy.Normal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="32dp"
+                android:text="@string/advert_detail_go_detail"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView_progressNumber" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

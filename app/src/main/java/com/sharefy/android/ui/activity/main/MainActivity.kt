@@ -11,6 +11,7 @@ import androidx.annotation.RequiresApi
 import androidx.fragment.app.FragmentContainerView
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import com.sharefy.android.R
@@ -25,7 +26,9 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
 
     override val viewModel: MainViewModel by viewModels()
 
-    private val navController: NavController by lazy { findNavController(R.id.nav_host_fragment_container) }
+    private val navController: NavController by lazy {
+        (supportFragmentManager.findFragmentById(R.id.nav_host_fragment_container) as NavHostFragment).navController
+    }
 
     private val appBarConfiguration by lazy {
         AppBarConfiguration(navController.graph)
@@ -49,6 +52,7 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
     }
 
     override fun onReady(savedInstanceState: Bundle?) {
+        binding.bottomNavigationView.setupWithNavController(navController)
         setupToolbarConfig()
 
         locationPermissionRequest.launch(arrayOf(

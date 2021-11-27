@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.navArgs
 import com.sharefy.android.R
 import com.sharefy.android.base.BaseFragment
 import com.sharefy.android.base.validator.EmptyValidator
@@ -36,6 +37,7 @@ class AddNewAdvertFragment : BaseFragment<FragmentAddNewAdvertBinding, NewAdvert
             viewModel.appSession.categories.orEmpty()
         )
     }
+    private val args by navArgs<AddNewAdvertFragmentArgs>()
 
     private val materialList: MutableList<NecessaryMaterials> = mutableListOf()
 
@@ -68,12 +70,13 @@ class AddNewAdvertFragment : BaseFragment<FragmentAddNewAdvertBinding, NewAdvert
 
             viewModel.addNewAdvert(
                 Advert(
+                    userId= viewModel.appSession.user?.docId!! ,
                     title = title,
                     additionalInformation = extraNotes,
-                    categoryId = category.docId,
+                    category = category,
                     necessaryMaterial = materialList,
-                    lat = 41.015137,
-                    long = 28.979530
+                    lat = args.latLng.latitude,
+                    long = args.latLng.longitude
                 )
             )
 

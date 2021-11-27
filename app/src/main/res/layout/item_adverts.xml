@@ -1,0 +1,123 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="advert"
+            type="com.sharefy.android.model.Advert" />
+    </data>
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:background="@color/white"
+        app:cardCornerRadius="8dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/textView_materialName"
+                style="@style/TextAppearance.Sharefy.Subtitle3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{advert.title}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Ilan basligi" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/textView_materialNameSubTit"
+                style="@style/TextAppearance.Sharefy.Subtitle4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Ilan basligi"
+                app:layout_constraintStart_toStartOf="@+id/textView_materialName"
+                app:layout_constraintTop_toBottomOf="@+id/textView_materialName" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/textView_materialCount"
+                style="@style/TextAppearance.Sharefy.Subtitle3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{advert.additionalInformation}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView_materialNameSubTit"
+                tools:text="Ilan ek bilgisi" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/textView_materialCountSubTit"
+                style="@style/TextAppearance.Sharefy.Subtitle4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Ilan ek bilgisi"
+                app:layout_constraintStart_toStartOf="@+id/textView_materialCount"
+                app:layout_constraintTop_toBottomOf="@+id/textView_materialCount" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/textView_category"
+                style="@style/TextAppearance.Sharefy.Subtitle3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{advert.category.name}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView_materialCountSubTit"
+                tools:text="Kategori" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/textView_categorySubTit"
+                style="@style/TextAppearance.Sharefy.Subtitle4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Kategori"
+                app:layout_constraintStart_toStartOf="@+id/textView_category"
+                app:layout_constraintTop_toBottomOf="@+id/textView_category" />
+
+
+            <ProgressBar
+                android:id="@+id/progress_advert"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:backgroundTint="@color/white"
+                android:max="100"
+                android:progress="90"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView_categorySubTit" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/progress_advertSubTit"
+                style="@style/TextAppearance.Sharefy.Subtitle4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:text="@string/advert_detail_advert_progress"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/progress_advert"
+                app:layout_constraintTop_toBottomOf="@+id/progress_advert" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/textView_progressNumber"
+                style="@style/TextAppearance.Sharefy.Subtitle4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="@+id/progress_advert"
+                app:layout_constraintTop_toBottomOf="@+id/progress_advert"
+                tools:text="%90" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>

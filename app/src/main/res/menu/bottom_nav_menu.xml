@@ -7,7 +7,7 @@
         android:title="@string/bottom_nav_menu_menu" />
 
     <item
-        android:id="@+id/advertFragment"
+        android:id="@+id/myAdvertsFragment"
         android:icon="@drawable/ic_receipt_long"
         android:title="@string/bottom_nav_menu_my_adverts" />
 

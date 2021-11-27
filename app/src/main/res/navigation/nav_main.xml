@@ -16,5 +16,13 @@
     <fragment
         android:id="@+id/addNewAdvertFragment"
         android:name="com.sharefy.android.ui.fragment.add_new_advert.AddNewAdvertFragment"
-        android:label="Ilan Ekle" />
+        android:label="Ilan Ekle" >
+        <argument
+            android:name="latLng"
+            app:argType="com.google.android.gms.maps.model.LatLng" />
+    </fragment>
+    <fragment
+        android:id="@+id/myAdvertsFragment"
+        android:name="com.sharefy.android.ui.fragment.my_adverts.MyAdvertsFragment"
+        android:label="Ilanlarim" />
 </navigation>
