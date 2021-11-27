@@ -10,7 +10,7 @@ import com.sharefy.android.model.User
 import com.sharefy.android.ui.fragment.add_new_advert.adapter.NecessaryMaterialsAdapterClickListener
 
 class ContributionMaterialAdapter(
-""    private val data: List<NecessaryMaterials>,
+    private val data: List<NecessaryMaterials>,
     private val necessaryMaterialsAdapterClickListener: NecessaryMaterialsAdapterClickListener,
 ) : BaseAdapter<ItemAdvertContributeBinding, NecessaryMaterials>(data) {
 

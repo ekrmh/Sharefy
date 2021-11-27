@@ -5,9 +5,13 @@ import android.text.SpannableStringBuilder
 import androidx.fragment.app.viewModels
 import com.sharefy.android.R
 import com.sharefy.android.base.BaseFragment
+import com.sharefy.android.base.validator.EmailValidator
+import com.sharefy.android.base.validator.EmptyValidator
+import com.sharefy.android.base.validator.base.BaseValidator
 import com.sharefy.android.databinding.FragmentLoginBinding
 import com.sharefy.android.ui.activity.main.MainActivity
 import dagger.hilt.android.AndroidEntryPoint
+import multipleValidations
 import observeNonNull
 
 @AndroidEntryPoint
@@ -28,13 +32,28 @@ class LoginFragment : BaseFragment<FragmentLoginBinding, LoginViewModel>() {
             }
         }
 
-        binding.btnLogin.setOnClickListener {
+        binding.btnLogin.multipleValidations(buttonClickListener = {
+            val email = binding.textFieldEmail.editText?.text.toString()
+            val password = binding.textFieldPassword.editText?.text.toString()
+
+            val emailValidator = BaseValidator.validate(
+                EmptyValidator(email) , EmailValidator(email)
+            )
+            val passwordValidator = EmptyValidator(password).validate()
+
+            hashMapOf(
+                Pair(binding.textFieldEmail, emailValidator),
+                Pair(binding.textFieldPassword, passwordValidator),
+            )
+
+        }, onSuccessCallback = {
             val email = binding.textFieldEmail.editText?.text.toString()
             val password = binding.textFieldPassword.editText?.text.toString()
             val rememberMe = binding.checkboxRememberMe.isChecked
 
             viewModel.login(email, password, rememberMe)
-        }
+        })
+
     }
 
     private fun initUI() {

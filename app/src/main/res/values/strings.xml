@@ -29,6 +29,7 @@
 
     <string name="validation_success" />
     <string name="validation_error_empty">Lütfen boş alanı doldurunuz.</string>
+    <string name="validation_error_email">Lütfen uygun bir email adresi giriniz!</string>
     <string name="validation_error_necessary_items_count_missing">Giriş değeri gerekli malzeme adeti içermelidir. (ör. 10 kitap, 2 kazak)</string>
     <string name="validation_error_necessary_items_count">Lütfen geçerli bir sayı giriniz!</string>
     <string name="validation_error_necessary_items_empty">En az 1 adet malzeme girilmelidir.</string>
