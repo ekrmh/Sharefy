@@ -1,7 +1,9 @@
 package com.sharefy.android.ui.fragment.map
 
 import android.Manifest
+import android.content.Context
 import android.content.pm.PackageManager
+import android.graphics.*
 import android.location.Location
 import android.os.Bundle
 import androidx.core.app.ActivityCompat
@@ -21,6 +23,15 @@ import com.sharefy.android.model.Advert
 import com.sharefy.android.ui.fragment.map.marker_detail.MarkerDetailBottomSheetFragment
 import observeNonNull
 import com.google.android.gms.maps.model.MarkerOptions
+
+import android.util.TypedValue
+
+import android.graphics.drawable.Drawable
+import androidx.appcompat.content.res.AppCompatResources.getDrawable
+import android.graphics.drawable.BitmapDrawable
+
+import android.graphics.Bitmap
+import androidx.core.graphics.drawable.toBitmap
 
 
 @AndroidEntryPoint
@@ -48,6 +59,7 @@ class MapFragment : BaseFragment<FragmentMapBinding, MapViewModel>(),
             }
             is LatLng -> {
                 //Nothing
+                marker.showInfoWindow()
             }
         }
         true
@@ -64,9 +76,13 @@ class MapFragment : BaseFragment<FragmentMapBinding, MapViewModel>(),
 
     private fun addMarkersForAdverts(list: List<Advert>) {
         list.forEach { advert: Advert ->
+            val drawable = getMarkerDrawable(requireContext(), R.drawable.ic_dot, Color.parseColor(
+                advert.category.markerColor
+            ))?.toBitmap()
             map.addMarker(
                 MarkerOptions()
                     .position(LatLng(advert.lat, advert.long))
+                    .icon(BitmapDescriptorFactory.fromBitmap(drawable))
 
             ).apply {
                 hideInfoWindow()
@@ -74,7 +90,6 @@ class MapFragment : BaseFragment<FragmentMapBinding, MapViewModel>(),
             }
         }
     }
-
 
     private fun initMap() {
         val mapFragment =
@@ -109,9 +124,11 @@ class MapFragment : BaseFragment<FragmentMapBinding, MapViewModel>(),
         map = googleMap ?: return
         googleMap.setOnMyLocationButtonClickListener(this)
         googleMap.setOnMyLocationClickListener(this)
-
-        map.setOnMarkerClickListener(markerClickListener)
-        map.setOnInfoWindowClickListener(this)
+        googleMap.setOnMapClickListener {
+            markerCenter?.showInfoWindow()
+        }
+        googleMap.setOnMarkerClickListener(markerClickListener)
+        googleMap.setOnInfoWindowClickListener(this)
 
         initCenterMarker()
         enableMyLocation()
@@ -121,11 +138,11 @@ class MapFragment : BaseFragment<FragmentMapBinding, MapViewModel>(),
     private fun initCenterMarker() {
         val markerOptions = MarkerOptions()
             .position(map.cameraPosition.target)
-            .title("Yeni bir ilan eklemek icin buraya tiklayin")
+            .title(getString(R.string.add_new_advert))
             .draggable(true)
-            .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))
+            .icon(BitmapDescriptorFactory.fromResource(R.drawable.help))
 
-
+        markerCenter?.remove()
         markerCenter = map.addMarker(markerOptions)
             .apply {
                 showInfoWindow()
@@ -133,8 +150,8 @@ class MapFragment : BaseFragment<FragmentMapBinding, MapViewModel>(),
             }
 
         map.setOnCameraMoveListener {
-            markerCenter!!.position = map.cameraPosition.target
-            markerCenter!!.tag = map.cameraPosition.target
+            markerCenter?.position = map.cameraPosition.target
+            markerCenter?.tag = map.cameraPosition.target
         }
     }
 
@@ -150,13 +167,15 @@ class MapFragment : BaseFragment<FragmentMapBinding, MapViewModel>(),
             // REQUEST PERMISSION HERE
 
         }
-        // [END maps_check_location_permission]
     }
 
-
-    companion object {
-        private const val LOCATION_PERMISSION_REQUEST_CODE = 1
+    fun getMarkerDrawable(context: Context, drawableResId: Int, colorFilter: Int): Drawable? {
+        val drawable = getDrawable(context, drawableResId)
+        drawable?.setColorFilter(
+            colorFilter,
+            PorterDuff.Mode.SRC_IN
+        )
+        return drawable
     }
-
 
 }
