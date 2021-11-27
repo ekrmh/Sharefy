@@ -17,12 +17,7 @@ class MainViewModel @Inject constructor(
     private val chatRepository: ChatRepository,
 ) : BaseViewModel() {
 
-
     val notificationShow = MutableLiveData<Boolean>()
-
-    init {
-        getChatsPeriodically()
-    }
 
     fun disableNotification(){
         notificationShow.postValue(false)
@@ -50,7 +45,7 @@ class MainViewModel @Inject constructor(
         }
     }
 
-    private fun getChatsPeriodically(): Job {
+    fun getChatsPeriodically(): Job {
         return bgScope.launch {
             while (isActive) {
                 delay(5000)

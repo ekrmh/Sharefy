@@ -62,7 +62,20 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
             Manifest.permission.ACCESS_COARSE_LOCATION))
 
         viewModel.notificationShow.observeNonNull(this) { state ->
-                badge.isVisible = state
+            badge.isVisible = state
+        }
+
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            when (destination.id) {
+                R.id.chatFragment, R.id.chatLobbyFragment -> {
+                    if (viewModel.getChatsPeriodically().isActive)
+                        viewModel.getChatsPeriodically().cancel()
+                }
+                else -> {
+                    if (!viewModel.getChatsPeriodically().isActive)
+                        viewModel.getChatsPeriodically().start()
+                }
+            }
         }
     }
 
