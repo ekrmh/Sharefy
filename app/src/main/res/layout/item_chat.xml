@@ -10,6 +10,7 @@
 
 
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
@@ -18,18 +19,19 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_marginBottom="16dp"
+            android:padding="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/textView"
-                android:textSize="16sp"
-                android:layout_marginTop="16dp"
-                android:layout_marginStart="16dp"
-                android:textColor="@color/indigo_blue"
-                android:fontFamily="@font/me_bold"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/me_bold"
+                android:textColor="@color/indigo_blue"
+                android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

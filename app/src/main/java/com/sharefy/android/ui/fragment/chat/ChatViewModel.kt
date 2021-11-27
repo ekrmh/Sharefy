@@ -8,6 +8,9 @@ import com.sharefy.android.model.Chat
 import com.sharefy.android.model.ChatLobby
 import com.sharefy.android.repository.ChatRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -20,6 +23,10 @@ class ChatViewModel @Inject constructor(
 
     private val _chat = MutableLiveData<ChatLobby>()
     val chat: LiveData<ChatLobby> get() = _chat
+
+    init {
+        getChatsPeriodically()
+    }
 
     fun sendMessage(message: String) {
         bgScope.launch {
@@ -34,13 +41,25 @@ class ChatViewModel @Inject constructor(
         }
     }
 
-    fun getChat() {
+    fun getChat(showLoader: Boolean = true) {
         bgScope.launch {
-            chatRepository.getChat(chatLobbyId).run {
+            chatRepository.getChat(chatLobbyId).run(showLoaderView = showLoader) {
                 _chat.postValue(it)
             }
         }
     }
 
+    private fun getChatsPeriodically(): Job {
+        return bgScope.launch {
+            while(isActive) {
+                delay(5000)
+                getChat(false)
+            }
+        }
+    }
 
+    override fun onCleared() {
+        super.onCleared()
+        getChatsPeriodically().cancel()
+    }
 }
