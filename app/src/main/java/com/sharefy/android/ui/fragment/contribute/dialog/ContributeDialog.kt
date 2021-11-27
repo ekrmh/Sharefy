@@ -23,12 +23,9 @@ class ContributeDialog(
 
     @SuppressLint("SetTextI18n")
     override fun onReady(savedInstanceState: Bundle?) {
-        binding.textviewSubTitle2.text =
-            "Adet girin: (Gerekli adet sayisi: ${necessaryMaterials.count})"
+        binding.textviewSubTitle2.text = context.getString(R.string.input_count, necessaryMaterials.count.toString())
 
-        binding.inputEditTextTextFieldSecond.hint = SpannableStringBuilder(
-            "Bagislanan malzeme adeti: ${necessaryMaterials.completedNumber}"
-        )
+        binding.inputEditTextTextFieldSecond.hint = SpannableStringBuilder(context.getString(R.string.input_count2, necessaryMaterials.completedNumber.toString()))
 
         binding.buttonAdd.setOnClickListener {
             val input = binding.inputEditTextTextFieldSecond.text.toString()

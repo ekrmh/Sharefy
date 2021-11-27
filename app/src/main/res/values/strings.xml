@@ -51,4 +51,6 @@
     <string name="warning_empty">Onaylanmayı bekleyen yardım bulunmamaktadır.</string>
     <string name="all">Hepsi</string>
     <string name="warning_help">İhtiyaçtan fazla miktarda yardım yapılamaz.</string>
+    <string name="input_count">Adet girin: (Gerekli adet sayisi: %s)</string>
+    <string name="input_count2">"Toplanan ihtiyaç adeti: %s"</string>
 </resources>
