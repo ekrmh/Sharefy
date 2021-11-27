@@ -13,6 +13,8 @@ import com.sharefy.android.base.validator.EmptyValidator
 import com.sharefy.android.base.validator.NecessaryMaterialsListValidator
 import com.sharefy.android.base.validator.NecessaryMaterialsValidator
 import com.sharefy.android.databinding.FragmentAddNewAdvertBinding
+import com.sharefy.android.model.Advert
+import com.sharefy.android.model.Category
 import com.sharefy.android.model.NecessaryMaterials
 import com.sharefy.android.ui.fragment.add_new_advert.adapter.NecessaryMaterialsAdapter
 import com.sharefy.android.ui.fragment.add_new_advert.adapter.NecessaryMaterialsAdapterClickListener
@@ -43,7 +45,7 @@ class AddNewAdvertFragment : BaseFragment<FragmentAddNewAdvertBinding, NewAdvert
 
     override fun onReady(savedInstanceState: Bundle?) {
         binding.apply {
-            spinnerProfile.adapter = spinnerAdapter
+            spinnerCategory.adapter = spinnerAdapter
             recyclerViewExtraItem.adapter = necessaryMaterialsAdapter
         }
 
@@ -61,6 +63,20 @@ class AddNewAdvertFragment : BaseFragment<FragmentAddNewAdvertBinding, NewAdvert
             val title = binding.inputEditTextTitle.text.toString()
             val extraNotes = binding.inputEditTextExtraNotes.text.toString()
 
+            val category = binding.spinnerCategory.selectedItem as Category
+
+
+            viewModel.addNewAdvert(
+                Advert(
+                    title = title,
+                    additionalInformation = extraNotes,
+                    categoryId = category.docId,
+                    necessaryMaterial = materialList,
+                    lat = 41.015137,
+                    long = 28.979530
+                )
+            )
+
         })
 
         binding.inputLayoutExtraItem.setStartIconOnClickListener {
@@ -76,7 +92,8 @@ class AddNewAdvertFragment : BaseFragment<FragmentAddNewAdvertBinding, NewAdvert
 
 
             materialList.add(parseNecessaryMaterial(input))
-            necessaryMaterialsAdapter.submitList(materialList)
+            necessaryMaterialsAdapter.updateData(materialList)
+
         }
     }
 
@@ -90,7 +107,7 @@ class AddNewAdvertFragment : BaseFragment<FragmentAddNewAdvertBinding, NewAdvert
 
     override fun onDeleteMaterialClicked(item: NecessaryMaterials, position: Int) {
         materialList.removeAt(position)
-        necessaryMaterialsAdapter.submitList(materialList)
+        necessaryMaterialsAdapter.updateData(materialList)
     }
 
 }

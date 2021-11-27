@@ -27,4 +27,9 @@ object RepositoryModule {
     @Singleton
     fun provideCategoryRepository(@CategoryReference reference: CollectionReference): CategoryRepository =
         CategoryRepositoryImp(reference)
+
+    @Provides
+    @Singleton
+    fun provideAdvertRepository(@AdvertReference reference: CollectionReference): AdvertRepository =
+        AdvertRepositoryImp(reference)
 }

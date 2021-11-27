@@ -30,4 +30,9 @@ object FirestoreModule {
     @Singleton
     @CategoryReference
     fun provideCategoryCollection(firestore: FirebaseFirestore) = firestore.collection("Categories")
+
+    @Provides
+    @Singleton
+    @AdvertReference
+    fun provideAdvertCollection(firestore: FirebaseFirestore) = firestore.collection("Adverts")
 }

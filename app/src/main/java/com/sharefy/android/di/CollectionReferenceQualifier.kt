@@ -14,3 +14,7 @@ annotation class UserReference
 @Qualifier
 @Retention(AnnotationRetention.BINARY)
 annotation class CategoryReference
+
+@Qualifier
+@Retention(AnnotationRetention.BINARY)
+annotation class AdvertReference

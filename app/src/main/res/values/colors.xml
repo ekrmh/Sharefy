@@ -63,4 +63,5 @@
     <color name="screen_background_color">#F3F3F3</color>
     <color name="inputLayoutHintColor">#7F8183</color>
     <color name="color_delete">#FF6565</color>
+    <color name="loaderViewBackground">#70000000</color>
 </resources>

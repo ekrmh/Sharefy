@@ -83,7 +83,7 @@ abstract class BaseViewModel : ViewModel() {
     }
 
     fun navigateBack() {
-        _navigation.value = Event(NavigationCommand.Back)
+        _navigation.postValue(Event(NavigationCommand.Back))
     }
 
     fun showPopup(popupModel: PopupModel) {

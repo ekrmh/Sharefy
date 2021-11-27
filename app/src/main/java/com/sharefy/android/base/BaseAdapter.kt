@@ -7,43 +7,39 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
+import androidx.recyclerview.widget.RecyclerView
 
 
 abstract class BaseAdapter<BINDING : ViewDataBinding, T : ListAdapterItem>(
-    diffCallback: DiffUtil.ItemCallback<T> = ListAdapterItemDiffCallback()
-) : ListAdapter<T, BaseViewHolder<BINDING, T>>(diffCallback) {
+    var list: List<T>
+) : RecyclerView.Adapter<BaseViewHolder<BINDING>>() {
 
     @get:LayoutRes
-    protected abstract val layoutId: Int
+    abstract val layoutId: Int
 
-    open var onItemClickListener: ((Int, T) -> Unit)? = null
+    abstract fun bind(binding: BINDING, item: T, position: Int)
 
-    protected var onItemBinding: ((BINDING) -> Unit)? = null
+    override fun getItemCount(): Int = list.size
 
-    protected abstract fun bindItem(binding: BINDING, item: T, position: Int)
+    protected lateinit var binding: BINDING
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<BINDING, T> {
-        val binding = DataBindingUtil.inflate<BINDING>(
+    fun updateData(list: List<T>) {
+        this@BaseAdapter.list = list
+        notifyDataSetChanged()
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<BINDING> {
+        val binder = DataBindingUtil.inflate<BINDING>(
             LayoutInflater.from(parent.context),
             layoutId,
             parent,
             false
         )
-
-        return BaseViewHolder<BINDING, T>(binding).apply {
-            onItemBinding = this@BaseAdapter.onItemBinding
-        }
+        binding = binder
+        return BaseViewHolder(binder)
     }
 
-    override fun onBindViewHolder(holder: BaseViewHolder<BINDING, T>, position: Int) {
-        getItem(position)?.let { item ->
-            holder.apply {
-                bindItem(item)
-                bindItem(holder.binding, item, position)
-                itemView.setOnClickListener {
-                    onItemClickListener?.invoke(position, item)
-                }
-            }
-        }
+    override fun onBindViewHolder(holder: BaseViewHolder<BINDING>, position: Int) {
+        bind(holder.binding, list[position], position)
     }
 }

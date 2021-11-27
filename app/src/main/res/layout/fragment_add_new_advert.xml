@@ -37,7 +37,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.appcompat.widget.AppCompatSpinner
-                    android:id="@+id/spinner_profile"
+                    android:id="@+id/spinner_category"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -55,7 +55,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/new_advert_title"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/spinner_profile" />
+                    app:layout_constraintTop_toBottomOf="@+id/spinner_category" />
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/inputLayout_title"

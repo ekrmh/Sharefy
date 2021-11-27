@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.res.Resources
 import android.view.LayoutInflater
 import android.view.Window
+import com.sharefy.android.R
 import com.sharefy.android.databinding.ViewLoaderBinding
 
 class LoaderView(private val context: Context) {
@@ -13,10 +14,10 @@ class LoaderView(private val context: Context) {
         Dialog(context, android.R.style.Theme_Black).apply {
             requestWindowFeature(Window.FEATURE_NO_TITLE)
             window?.apply {
-                setBackgroundDrawableResource(android.R.color.transparent)
-                val wh =
-                    (Resources.getSystem().displayMetrics.widthPixels * WIDTH_PERCENTAGE).toInt()
-                setLayout(wh, wh)
+                setBackgroundDrawableResource(R.color.loaderViewBackground)
+//                val wh =
+//                    (Resources.getSystem().displayMetrics.widthPixels * WIDTH_PERCENTAGE).toInt()
+//                setLayout(wh, wh)
             }
 
             setContentView(view.root)
@@ -41,7 +42,7 @@ class LoaderView(private val context: Context) {
     }
 
     companion object {
-        private const val WIDTH_PERCENTAGE = 0.65
+        private const val WIDTH_PERCENTAGE = 0.5
         const val LOADING_FILE_NAME = "lottie/loading.json"
     }
 }

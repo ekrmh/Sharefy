@@ -8,19 +8,22 @@ import com.sharefy.android.model.NecessaryMaterials
 class NecessaryMaterialsAdapter(
     private val data: List<NecessaryMaterials>,
     private val necessaryMaterialsAdapterClickListener: NecessaryMaterialsAdapterClickListener,
-) : BaseAdapter<ItemNecessaryMaterialsBinding, NecessaryMaterials>() {
+) : BaseAdapter<ItemNecessaryMaterialsBinding, NecessaryMaterials>(data) {
 
     override val layoutId: Int = R.layout.item_necessary_materials
 
-    override fun bindItem(
+    override fun bind(
         binding: ItemNecessaryMaterialsBinding,
         item: NecessaryMaterials,
         position: Int,
     ) {
         binding.textViewMaterialCount.text = item.count.toString()
+        binding.item = item
 
         binding.buttonDelete.setOnClickListener {
-            necessaryMaterialsAdapterClickListener.onDeleteMaterialClicked(item, position)
+            necessaryMaterialsAdapterClickListener.onDeleteMaterialClicked(
+                item, position
+            )
         }
     }
 }

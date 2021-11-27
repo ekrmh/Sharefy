@@ -33,15 +33,16 @@ fun visibleIf(view: View, shouldVisible: Boolean) {
     }
 }
 
-
+@Suppress("UNCHECKED_CAST")
 @BindingAdapter("submitData")
-fun listAdapterSubmitList(recyclerView: RecyclerView, list: List<ListAdapterItem>?) {
-    val adapter = recyclerView.adapter as BaseAdapter<ViewDataBinding, ListAdapterItem>?
-    adapter?.submitList(list)
+fun setData(recyclerView: RecyclerView, list: List<ListAdapterItem>?) {
+    val adapter = recyclerView.adapter as BaseAdapter<ViewDataBinding, ListAdapterItem> ?
+    adapter?.updateData(list ?: listOf())
 }
 
+
 @BindingAdapter("adapter")
-fun listAdapterSetAdapter(
+fun setAdapter(
     recyclerView: RecyclerView,
     adapter: BaseAdapter<ViewDataBinding, ListAdapterItem>?,
 ) {
