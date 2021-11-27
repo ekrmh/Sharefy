@@ -27,6 +27,11 @@ class MyAdvertsAdapter(
 
         }
 
+        if(initProgressStatus(item) == 100)
+            binding.progressFinishAdvert.visibility = View.VISIBLE
+        else
+            binding.progressFinishAdvert.visibility = View.GONE
+
         binding.apply {
             advert = item
             progressAdvert.progress = initProgressStatus(item)
