@@ -15,6 +15,10 @@ class MyAdvertsAdapter(
 
     override fun bind(binding: ItemAdvertsBinding, item: Advert, position: Int) {
 
+        binding.root.setOnClickListener {
+            advertsClickListener.onItemClicked(item, position)
+        }
+
         binding.progressPendingContribution.setOnClickListener {
             advertsClickListener.onPendingContributionClicked(item,position)
         }
@@ -28,18 +32,16 @@ class MyAdvertsAdapter(
     }
 
     private fun initProgressStatus(advert: Advert): Int {
-        var totalNumber = 0
-        var completedNumber = 0
-        advert.necessaryMaterial.forEach { necessaryMaterials ->
-            totalNumber += necessaryMaterials.count
-            completedNumber += necessaryMaterials.completedNumber
-        }
+        var totalNumber =  advert.necessaryMaterial.sumOf { it.count }
+        var completedNumber =  advert.necessaryMaterial.sumOf { it.approvedContribution.sumOf { it.count } }
+
 
         return ((completedNumber.toFloat() / totalNumber.toFloat()) * 100).toInt()
     }
 }
 
 interface MyAdvertsClickListener {
+    fun onItemClicked(advert: Advert, position: Int)
     fun onApprovedContributionClicked(advert: Advert, position: Int)
     fun onPendingContributionClicked(advert: Advert, position: Int)
 }

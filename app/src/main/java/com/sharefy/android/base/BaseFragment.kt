@@ -65,7 +65,7 @@ abstract class BaseFragment<BINDING : ViewDataBinding, VM : BaseViewModel> : Fra
         }
     }
 
-    private fun handleNavigation(navCommand: NavigationCommand) {
+    fun handleNavigation(navCommand: NavigationCommand) {
         when (navCommand) {
             is NavigationCommand.ToDirection -> navController.navigate(navCommand.direction)
             is NavigationCommand.Back -> navController.navigateUp()

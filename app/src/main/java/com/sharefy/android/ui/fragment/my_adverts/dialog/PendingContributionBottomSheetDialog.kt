@@ -45,12 +45,13 @@ class PendingContributionBottomSheetDialog(
 
                     advert.necessaryMaterial[x].updatable = true
 
-                    viewModel.updateAdvertData(
-                        advert.docId, mapOf(
-                            Pair("necessaryMaterial", advert.necessaryMaterial)
-                        )
-                    )
+                    viewModel.updateAdvertData(advert.docId, mapOf(Pair("necessaryMaterial", advert.necessaryMaterial)))
+                    allList.removeAt(position)
                     adapter.updateData(allList)
+
+                    if (allList.isEmpty()){
+                        dismiss()
+                    }
                 }
             }
         }

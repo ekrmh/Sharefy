@@ -33,7 +33,11 @@
     <fragment
         android:id="@+id/myAdvertsFragment"
         android:name="com.sharefy.android.ui.fragment.my_adverts.MyAdvertsFragment"
-        android:label="@string/my_adverts" />
+        android:label="@string/my_adverts" >
+        <action
+            android:id="@+id/action_myAdvertsFragment_to_contributeFragment"
+            app:destination="@id/contributeFragment" />
+    </fragment>
     <fragment
         android:id="@+id/contributeFragment"
         android:name="com.sharefy.android.ui.fragment.contribute.ContributeFragment"

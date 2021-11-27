@@ -29,9 +29,7 @@ class MyAdvertsViewModel @Inject constructor(
         viewModelScope.launch {
             advertRepository.updateAdvertMaterial(
                 docId, map
-            ).run {
-
-            }
+            ).run(showLoaderView = false) {}
         }
     }
 

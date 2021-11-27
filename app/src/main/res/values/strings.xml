@@ -48,4 +48,5 @@
     <string name="add_new_advert_btn">İlan Ekle</string>
     <string name="signout">Çıkış yap</string>
     <string name="contribution_approve">Onayla</string>
+    <string name="warning_empty">Onaylanmayı bekleyen yardım bulunmamaktadır.</string>
 </resources>

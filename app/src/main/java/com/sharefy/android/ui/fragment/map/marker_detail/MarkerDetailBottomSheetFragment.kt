@@ -36,12 +36,8 @@ class MarkerDetailBottomSheetFragment(
 
     @SuppressLint("SetTextI18n")
     private fun initProgressStatus() {
-        var totalNumber = 0
-        var completedNumber = 0
-        advertInf.necessaryMaterial.forEach { necessaryMaterials ->
-            totalNumber += necessaryMaterials.count
-            completedNumber += necessaryMaterials.completedNumber
-        }
+        var totalNumber =  advertInf.necessaryMaterial.sumOf { it.count }
+        var completedNumber =  advertInf.necessaryMaterial.sumOf { it.approvedContribution.sumOf { it.count } }
 
         val percentage = ((completedNumber.toFloat() / totalNumber.toFloat())*100).toInt()
         binding.progressAdvert.progress = percentage
