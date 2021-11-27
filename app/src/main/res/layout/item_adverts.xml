@@ -8,9 +8,6 @@
             name="advert"
             type="com.sharefy.android.model.Advert" />
 
-        <variable
-            name="myAdvertClickListener"
-            type="com.sharefy.android.ui.fragment.my_adverts.adapter.MyAdvertsClickListener" />
     </data>
 
 
@@ -127,7 +124,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 android:layout_marginBottom="16dp"
-                android:onClick="@{() -> myAdvertClickListener.onApprovedContributionClicked(advert)}"
                 android:text="@string/advert_detail_approved"
                 android:textColor="@color/black"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -140,7 +136,6 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
-                android:onClick="@{() -> myAdvertClickListener.onPendingContributionClicked(advert)}"
                 android:text="@string/advert_detail_pending"
                 android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
