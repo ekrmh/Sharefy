@@ -77,7 +77,7 @@ class MapFragment : BaseFragment<FragmentMapBinding, MapViewModel>(),
                     markerCenter?.showInfoWindow()
                 }) { advert ->
                     viewModel.goToContributeFragment(advert)
-                }.show(parentFragmentManager, "Marker Detail Bottom Sheet Fragment")
+                }.show(parentFragmentManager, "TAG")
             }
             is LatLng -> {
                 //Nothing

@@ -18,10 +18,7 @@ class NewAdvertViewModel @Inject constructor(
         bgScope.launch {
             advertRepository.postNewAdvert(newAdvert.apply {
                 contact = appSession.user?.email ?: ""
-            })
-                .run {
-                    navigateBack()
-                }
+            }).run { navigateBack() }
         }
     }
 }

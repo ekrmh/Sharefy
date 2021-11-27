@@ -33,6 +33,8 @@ class ContributeViewModel @Inject constructor(
         val lobby = ChatLobby(
             personIds = listOf(user.docId, advert.userId),
             personEmails = listOf(user.email, advert.contact),
+            title = advert.title,
+            category = advert.category,
             messages = mutableListOf()
         )
         viewModelScope.launch {

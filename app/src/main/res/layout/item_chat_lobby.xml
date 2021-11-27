@@ -37,6 +37,19 @@
                 tools:text="@string/new_advert_title" />
 
             <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/textView_info"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/me_regular"
+                android:textColor="@color/black80"
+                android:ellipsize="end"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/textView_name"
+                app:layout_constraintTop_toBottomOf="@+id/textView_name" />
+
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/textView_lastmessages"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -45,8 +58,8 @@
                 android:ellipsize="end"
                 android:textSize="12sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/textView_name"
-                app:layout_constraintTop_toBottomOf="@+id/textView_name" />
+                app:layout_constraintStart_toStartOf="@+id/textView_info"
+                app:layout_constraintTop_toBottomOf="@+id/textView_info" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

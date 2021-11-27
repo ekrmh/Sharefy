@@ -1,5 +1,6 @@
 package com.sharefy.android.ui.fragment.chat_lobby.adapter
 
+import android.annotation.SuppressLint
 import com.sharefy.android.R
 import com.sharefy.android.base.BaseAdapter
 import com.sharefy.android.databinding.ItemAdvertContributeBinding
@@ -17,9 +18,11 @@ class ChatLobbyAdapter(
 
     override val layoutId: Int = R.layout.item_chat_lobby
 
+    @SuppressLint("SetTextI18n")
     override fun bind(binding: ItemChatLobbyBinding, item: ChatLobby, position: Int) {
         binding.chatLobby = item
         binding.textViewName.text = item.personEmails.first { user.email != it }
+        binding.textViewInfo.text = "${item.category?.name} - ${item.title}"
         binding.textViewLastmessages.text = item.messages.lastOrNull()?.message ?: ""
 
         binding.root.setOnClickListener {
