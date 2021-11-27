@@ -35,4 +35,9 @@ object FirestoreModule {
     @Singleton
     @AdvertReference
     fun provideAdvertCollection(firestore: FirebaseFirestore) = firestore.collection("Adverts")
+
+    @Provides
+    @Singleton
+    @ChatReference
+    fun provideChatCollection(firestore: FirebaseFirestore) = firestore.collection("Chat")
 }

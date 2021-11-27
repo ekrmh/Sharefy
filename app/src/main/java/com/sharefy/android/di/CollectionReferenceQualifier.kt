@@ -18,3 +18,8 @@ annotation class CategoryReference
 @Qualifier
 @Retention(AnnotationRetention.BINARY)
 annotation class AdvertReference
+
+
+@Qualifier
+@Retention(AnnotationRetention.BINARY)
+annotation class ChatReference

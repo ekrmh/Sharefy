@@ -1,6 +1,7 @@
 package com.sharefy.android.base
 
 import com.google.firebase.firestore.CollectionReference
+import com.sharefy.android.model.Chat
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow

@@ -10,6 +10,7 @@ import androidx.navigation.fragment.navArgs
 import com.sharefy.android.R
 import com.sharefy.android.base.BaseFragment
 import com.sharefy.android.databinding.FragmentContributeBinding
+import com.sharefy.android.model.Advert
 import com.sharefy.android.model.ContributeAdvert
 import com.sharefy.android.model.NecessaryMaterials
 import com.sharefy.android.ui.fragment.add_new_advert.adapter.NecessaryMaterialsAdapter
@@ -37,7 +38,7 @@ class ContributeFragment : BaseFragment<FragmentContributeBinding, ContributeVie
             recyclerViewMaterials.adapter = necessaryMaterialsAdapter
 
             imageviewEmail.setOnClickListener {
-                baseActivity?.openMailApp()
+                this@ContributeFragment.viewModel.openMessageScreen(advert as Advert)
             }
         }
         necessaryMaterialsAdapter.updateData(args.advert.necessaryMaterial)

@@ -82,13 +82,5 @@ abstract class BaseActivity<BINDING : ViewDataBinding, VM : BaseViewModel> : App
         }
     }
 
-    fun openMailApp(){
-        try {
-            val intent = Intent(Intent.ACTION_MAIN)
-            intent.addCategory(Intent.CATEGORY_APP_EMAIL)
-            this.startActivity(intent)
-        } catch (e: ActivityNotFoundException) {
 
-        }
-    }
 }

@@ -15,7 +15,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="bottom_nav_menu_menu">Keşfet</string>
     <string name="bottom_nav_menu_my_adverts">İlanlarım</string>
-    <string name="bottom_nav_manu_open_adverts">Acik malzemeler</string>
+    <string name="bottom_nav_manu_open_adverts">Mesajlarım</string>
     <string name="bottom_nav_menu_profile">Profil</string>
     <string name="new_advert_category">Tür</string>
     <string name="new_advert_title">Başlık</string>
@@ -54,4 +54,5 @@
     <string name="input_count">Adet girin: (Gerekli adet sayisi: %s)</string>
     <string name="input_count2">"Toplanan ihtiyaç adeti: %s"</string>
     <string name="contact">İletişim</string>
+    <string name="messages">Mesajlarım</string>
 </resources>

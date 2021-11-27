@@ -12,6 +12,8 @@
         <entry key="..\:/Users/ekremh/Sharefy/app/src/main/res/layout/bottom_sheet_advert_detail.xml" value="0.264" />
         <entry key="..\:/Users/ekremh/Sharefy/app/src/main/res/layout/bottom_sheet_pending.xml" value="0.17889492753623187" />
         <entry key="..\:/Users/ekremh/Sharefy/app/src/main/res/layout/fragment_add_new_advert.xml" value="0.12360688956433637" />
+        <entry key="..\:/Users/ekremh/Sharefy/app/src/main/res/layout/fragment_chat.xml" value="0.264" />
+        <entry key="..\:/Users/ekremh/Sharefy/app/src/main/res/layout/fragment_chat_lobby.xml" value="0.264" />
         <entry key="..\:/Users/ekremh/Sharefy/app/src/main/res/layout/fragment_contribute.xml" value="0.3203125" />
         <entry key="..\:/Users/ekremh/Sharefy/app/src/main/res/layout/fragment_login.xml" value="0.2" />
         <entry key="..\:/Users/ekremh/Sharefy/app/src/main/res/layout/fragment_map.xml" value="0.1" />
@@ -20,12 +22,15 @@
         <entry key="..\:/Users/ekremh/Sharefy/app/src/main/res/layout/fragment_register.xml" value="0.2" />
         <entry key="..\:/Users/ekremh/Sharefy/app/src/main/res/layout/item_advert_contribute.xml" value="0.2" />
         <entry key="..\:/Users/ekremh/Sharefy/app/src/main/res/layout/item_adverts.xml" value="0.264" />
+        <entry key="..\:/Users/ekremh/Sharefy/app/src/main/res/layout/item_chat.xml" value="0.15729166666666666" />
+        <entry key="..\:/Users/ekremh/Sharefy/app/src/main/res/layout/item_chat_lobby.xml" value="0.264" />
         <entry key="..\:/Users/ekremh/Sharefy/app/src/main/res/layout/item_civilization.xml" value="0.1" />
         <entry key="..\:/Users/ekremh/Sharefy/app/src/main/res/layout/item_contribution_user.xml" value="0.1286231884057971" />
         <entry key="..\:/Users/ekremh/Sharefy/app/src/main/res/layout/item_necessary_materials.xml" value="0.12360688956433637" />
         <entry key="..\:/Users/ekremh/Sharefy/app/src/main/res/layout/view_loader.xml" value="0.12360688956433637" />
         <entry key="..\:/Users/ekremh/Sharefy/app/src/main/res/layout/view_map_info.xml" value="0.264" />
         <entry key="..\:/Users/ekremh/Sharefy/app/src/main/res/layout/view_popup.xml" value="0.12360688956433637" />
+        <entry key="..\:/Users/ekremh/Sharefy/app/src/main/res/menu/bottom_nav_menu.xml" value="0.25364583333333335" />
       </map>
     </option>
   </component>
