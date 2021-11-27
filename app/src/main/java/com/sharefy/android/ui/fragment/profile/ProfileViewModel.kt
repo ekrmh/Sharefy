@@ -21,6 +21,7 @@ class ProfileViewModel @Inject constructor(private val userRepository: UserRepos
             userRepository.signOut().run {
                 AppPreferences.email = ""
                 AppPreferences.password = ""
+                appSession.user = null
                 _goToBeforeLogin.postValue(true)
             }
         }
