@@ -41,7 +41,7 @@ class ContributeDialog(
             } else
                 binding.inputLayoutTextFieldSecond.error = null
 
-            val addedNumber = necessaryMaterials.completedNumber + input.toIntOrNull()!!
+            val addedNumber = necessaryMaterials.completedNumber + input.toInt()
 
             if (addedNumber > necessaryMaterials.count) {
                 context.toast(context.getString(R.string.warning_help))
@@ -52,7 +52,7 @@ class ContributeDialog(
             necessaryMaterials.pendingContribution.add(
                 ContributeAdvert(
                     userId = this@ContributeDialog.userId,
-                    count = input.toIntOrNull()!!
+                    count = input.toInt()
                 )
             )
 

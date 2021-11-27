@@ -70,7 +70,7 @@ class AddNewAdvertFragment : BaseFragment<FragmentAddNewAdvertBinding, NewAdvert
 
             viewModel.addNewAdvert(
                 Advert(
-                    userId= viewModel.appSession.user?.docId!! ,
+                    userId= viewModel.appSession.user?.docId ?: "" ,
                     title = title,
                     additionalInformation = extraNotes,
                     category = category,

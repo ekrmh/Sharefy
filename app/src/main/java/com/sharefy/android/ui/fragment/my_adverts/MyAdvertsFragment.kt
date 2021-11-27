@@ -28,7 +28,7 @@ class MyAdvertsFragment : BaseFragment<FragmentMyAdvertsBinding, MyAdvertsViewMo
     override fun onReady(savedInstanceState: Bundle?) {
 
         binding.advertsAdapter = MyAdvertsAdapter(listOf(), this)
-        viewModel.fetchMyAdverts(viewModel.appSession.user!!.docId)
+        viewModel.fetchMyAdverts(viewModel.appSession.user?.docId ?: "")
 
     }
 

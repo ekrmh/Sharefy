@@ -42,7 +42,7 @@ class ContributeFragment : BaseFragment<FragmentContributeBinding, ContributeVie
 
     override fun onMaterialItemClicked(item: NecessaryMaterials, position: Int) {
         ContributeDialog(requireContext(),
-            userId = viewModel.appSession.user!!.docId,
+            userId = viewModel.appSession.user?.docId ?: "",
             necessaryMaterials = item) { updatedMaterial ->
 
             val ind = args.advert.necessaryMaterial.indexOf(item)
