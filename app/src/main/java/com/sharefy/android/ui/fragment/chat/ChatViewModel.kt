@@ -37,7 +37,12 @@ class ChatViewModel @Inject constructor(
                 add(Chat(appSession.user?.docId ?: "", message))
             }
 
-            chatRepository.sendMessage(chatLobbyId, messages).run {
+            val updateTime = hashMapOf<String, Long>(
+                Pair(appSession.user!!.docId, appSession.lastUpdatedTime),
+                Pair(_chat.value!!.personIds[1], System.currentTimeMillis()),
+            )
+
+            chatRepository.sendMessage(chatLobbyId, messages, updateTime).run {
                 getChat()
             }
         }

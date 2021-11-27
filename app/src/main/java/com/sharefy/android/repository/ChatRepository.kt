@@ -12,7 +12,11 @@ interface ChatRepository {
     suspend fun createMessageRoom(chatLobby: ChatLobby): Flow<Void>
     suspend fun getAllChats(userId: String): Flow<MutableList<ChatLobby>>
     suspend fun getChat(chatLobbyId: String): Flow<ChatLobby>
-    fun sendMessage(docId: String, messages: MutableList<Chat>): Flow<Void>
+    fun sendMessage(
+        docId: String,
+        messages: MutableList<Chat>,
+        updateTime: HashMap<String, Long>,
+    ): Flow<Void>
 }
 
 class ChatRepositoryImp @Inject constructor(private val collection: CollectionReference) :
@@ -31,10 +35,16 @@ class ChatRepositoryImp @Inject constructor(private val collection: CollectionRe
         response.toObject(ChatLobby::class.java)!!
     }
 
-    override fun sendMessage(docId: String, messages: MutableList<Chat>): Flow<Void> =
+    override fun sendMessage(
+        docId: String,
+        messages: MutableList<Chat>,
+        updateTime: HashMap<String, Long>,
+    ): Flow<Void> =
         updateFlowCall(collection,
             docId,
-            mapOf("messages" to messages))
+            mapOf("messages" to messages, "updateTimeList" to updateTime))
+
+
 
 
 }
