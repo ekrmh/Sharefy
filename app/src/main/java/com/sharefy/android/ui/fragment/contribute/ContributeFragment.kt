@@ -30,7 +30,7 @@ class ContributeFragment : BaseFragment<FragmentContributeBinding, ContributeVie
 
     private val args by navArgs<ContributeFragmentArgs>()
 
-    private val necessaryMaterialsAdapter by lazy { ContributionMaterialAdapter(args.advert.userId == this@ContributeFragment.viewModel.appSession.user.docId, listOf(), this) }
+    private val necessaryMaterialsAdapter = ContributionMaterialAdapter(listOf(), this)
 
     override fun onReady(savedInstanceState: Bundle?) {
         binding.apply {

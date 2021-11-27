@@ -10,8 +10,7 @@ import com.sharefy.android.model.User
 import com.sharefy.android.ui.fragment.add_new_advert.adapter.NecessaryMaterialsAdapterClickListener
 
 class ContributionMaterialAdapter(
-    private val isOwner: Boolean,
-    private val data: List<NecessaryMaterials>,
+""    private val data: List<NecessaryMaterials>,
     private val necessaryMaterialsAdapterClickListener: NecessaryMaterialsAdapterClickListener,
 ) : BaseAdapter<ItemAdvertContributeBinding, NecessaryMaterials>(data) {
 
@@ -24,7 +23,6 @@ class ContributionMaterialAdapter(
     ) {
         binding.textViewMaterialCount.text = item.count.toString()
         binding.item = item
-        binding.buttonContribute.visibility = if (isOwner) View.GONE else View.VISIBLE
         binding.buttonContribute.setOnClickListener {
             necessaryMaterialsAdapterClickListener.onMaterialItemClicked(
                 item, position
