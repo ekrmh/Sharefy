@@ -8,6 +8,7 @@ import com.sharefy.android.databinding.FragmentMyAdvertsBinding
 import com.sharefy.android.model.Advert
 import com.sharefy.android.ui.fragment.my_adverts.adapter.MyAdvertsAdapter
 import com.sharefy.android.ui.fragment.my_adverts.adapter.MyAdvertsClickListener
+import com.sharefy.android.ui.fragment.my_adverts.dialog.PendingContributionBottomSheetDialog
 import dagger.hilt.android.AndroidEntryPoint
 import observeNonNull
 
@@ -20,18 +21,23 @@ class MyAdvertsFragment : BaseFragment<FragmentMyAdvertsBinding, MyAdvertsViewMo
     override val viewModel: MyAdvertsViewModel by viewModels()
 
     override fun onReady(savedInstanceState: Bundle?) {
-        binding.advertsAdapter = MyAdvertsAdapter(listOf(), this)
 
+        binding.advertsAdapter = MyAdvertsAdapter(listOf(), this)
         viewModel.fetchMyAdverts(viewModel.appSession.user!!.docId)
 
     }
 
-    override fun onApprovedContributionClicked(advert: Advert) {
+    override fun onApprovedContributionClicked(advert: Advert, position: Int) {
 
     }
 
-    override fun onPendingContributionClicked(advert: Advert) {
-
+    override fun onPendingContributionClicked(advert: Advert, position: Int) {
+        PendingContributionBottomSheetDialog(
+            advert,
+            position
+        ).show(
+            parentFragmentManager, "TAG"
+        )
     }
 
 }

@@ -25,4 +25,14 @@ class MyAdvertsViewModel @Inject constructor(
             }
         }
     }
+    fun updateAdvertData(docId: String, map: Map<String, Any>){
+        viewModelScope.launch {
+            advertRepository.updateAdvertMaterial(
+                docId, map
+            ).run {
+
+            }
+        }
+    }
+
 }

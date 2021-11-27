@@ -11,7 +11,7 @@ data class NecessaryMaterials(
     val completedNumber: Int = 0,
     var pendingContribution: MutableList<ContributeAdvert> = mutableListOf(),
     var approvedContribution: MutableList<ContributeAdvert> = mutableListOf(),
-    val updatable : Boolean = true
+    var updatable : Boolean = true
 ) : ListAdapterItem, Parcelable {
     override val id: Long
         get() = 0
