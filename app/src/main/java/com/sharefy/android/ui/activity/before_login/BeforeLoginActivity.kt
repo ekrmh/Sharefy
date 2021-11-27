@@ -1,5 +1,7 @@
 package com.sharefy.android.ui.activity.before_login
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import com.sharefy.android.R
@@ -15,7 +17,9 @@ class BeforeLoginActivity : BaseActivity<ActivityBeforeLoginBinding, BeforeLogin
     override val viewModel: BeforeLoginViewModel by viewModels()
 
     override fun onReady(savedInstanceState: Bundle?) {
-        //onReady
     }
 
+    companion object {
+        fun newIntent(context: Context) = Intent(context, BeforeLoginActivity::class.java)
+    }
 }

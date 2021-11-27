@@ -6,6 +6,7 @@ import com.sharefy.android.R
 import com.sharefy.android.base.BaseFragment
 import com.sharefy.android.databinding.FragmentMyAdvertsBinding
 import com.sharefy.android.model.Advert
+import com.sharefy.android.ui.activity.before_login.BeforeLoginActivity
 import com.sharefy.android.ui.fragment.my_adverts.adapter.MyAdvertsAdapter
 import com.sharefy.android.ui.fragment.my_adverts.adapter.MyAdvertsClickListener
 import dagger.hilt.android.AndroidEntryPoint
@@ -19,7 +20,12 @@ class ProfileFragment : BaseFragment<FragmentMyAdvertsBinding, ProfileViewModel>
     override val viewModel: ProfileViewModel by viewModels()
 
     override fun onReady(savedInstanceState: Bundle?) {
-
+        viewModel.goToBeforeLogin.observeNonNull(this){
+            if (it){
+                startActivity(BeforeLoginActivity.newIntent(requireContext()))
+                requireActivity().finish()
+            }
+        }
     }
 
 }

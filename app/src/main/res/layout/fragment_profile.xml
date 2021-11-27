@@ -15,6 +15,77 @@
         android:background="@color/screen_background_color"
         tools:context=".ui.fragment.my_adverts.MyAdvertsFragment">
 
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/bg_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:background="@color/white"
+            app:cardCornerRadius="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_margin="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/textView_materialName"
+                    style="@style/TextAppearance.Sharefy.Subtitle3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.appSession.user.username}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/textView_materialNameSubTit"
+                    style="@style/TextAppearance.Sharefy.Subtitle4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/username"
+                    app:layout_constraintStart_toStartOf="@+id/textView_materialName"
+                    app:layout_constraintTop_toBottomOf="@+id/textView_materialName" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/textView_materialCount"
+                    style="@style/TextAppearance.Sharefy.Subtitle3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.appSession.user.email}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView_materialNameSubTit" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/textView_materialCountSubTit"
+                    style="@style/TextAppearance.Sharefy.Subtitle4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/email"
+                    app:layout_constraintStart_toStartOf="@+id/textView_materialCount"
+                    app:layout_constraintTop_toBottomOf="@+id/textView_materialCount" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSignout"
+            style="@style/ButtonAppearance.Sharefy.Normal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="32dp"
+            android:text="@string/signout"
+            android:onClick="@{() -> viewModel.signout()}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bg_info"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
