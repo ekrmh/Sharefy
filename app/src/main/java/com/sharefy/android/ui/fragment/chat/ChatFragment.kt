@@ -28,7 +28,9 @@ class ChatFragment : BaseFragment<FragmentChatBinding, ChatViewModel>() {
         viewModel.getChat()
 
         viewModel.chat.observeNonNull(this){
-            binding.recyclerView.adapter = ChatAdapter(viewModel.appSession.user ?: return@observeNonNull, it.messages)
+            val adapter = ChatAdapter(viewModel.appSession.user ?: return@observeNonNull, it.messages)
+            binding.recyclerView.adapter = adapter
+            binding.recyclerView.scrollToPosition(adapter.itemCount - 1);
         }
 
         binding.buttonSend.setOnClickListener {
