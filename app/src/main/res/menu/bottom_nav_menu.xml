@@ -11,10 +11,10 @@
         android:icon="@drawable/ic_receipt_long"
         android:title="@string/bottom_nav_menu_my_adverts" />
 
-    <item
+    <!--<item
         android:id="@+id/openAdverts"
         android:icon="@drawable/ic_outline_shopping"
-        android:title="@string/bottom_nav_manu_open_adverts" />
+        android:title="@string/bottom_nav_manu_open_adverts" />-->
 
     <item
         android:id="@+id/profileFragment"
