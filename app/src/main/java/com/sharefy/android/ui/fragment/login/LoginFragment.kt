@@ -1,6 +1,7 @@
 package com.sharefy.android.ui.fragment.login
 
 import android.os.Bundle
+import android.text.SpannableStringBuilder
 import androidx.fragment.app.viewModels
 import com.sharefy.android.R
 import com.sharefy.android.base.BaseFragment
@@ -17,10 +18,11 @@ class LoginFragment : BaseFragment<FragmentLoginBinding, LoginViewModel>() {
     override val viewModel: LoginViewModel by viewModels()
 
     override fun onReady(savedInstanceState: Bundle?) {
+        initUI()
         viewModel.getCategories()
 
-        viewModel.goToMain.observeNonNull(this){
-            if (it){
+        viewModel.goToMain.observeNonNull(this) {
+            if (it) {
                 startActivity(MainActivity.newIntent(requireContext()))
                 requireActivity().finish()
             }
@@ -33,6 +35,11 @@ class LoginFragment : BaseFragment<FragmentLoginBinding, LoginViewModel>() {
 
             viewModel.login(email, password, rememberMe)
         }
+    }
+
+    private fun initUI() {
+        binding.editTextEmail.hint = SpannableStringBuilder(getString(R.string.email))
+        binding.editTextPassword.hint = SpannableStringBuilder(getString(R.string.password))
     }
 
 }

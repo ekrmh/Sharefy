@@ -1,6 +1,7 @@
 package com.sharefy.android.ui.fragment.add_new_advert
 
 import android.os.Bundle
+import android.text.SpannableStringBuilder
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -21,6 +22,7 @@ import com.sharefy.android.ui.fragment.add_new_advert.adapter.NecessaryMaterials
 import com.sharefy.android.ui.fragment.add_new_advert.adapter.NecessaryMaterialsAdapterClickListener
 import dagger.hilt.android.AndroidEntryPoint
 import multipleValidations
+import toast
 
 @AndroidEntryPoint
 class AddNewAdvertFragment : BaseFragment<FragmentAddNewAdvertBinding, NewAdvertViewModel>(),
@@ -46,6 +48,7 @@ class AddNewAdvertFragment : BaseFragment<FragmentAddNewAdvertBinding, NewAdvert
     }
 
     override fun onReady(savedInstanceState: Bundle?) {
+        initUI()
         binding.apply {
             spinnerCategory.adapter = spinnerAdapter
             recyclerViewExtraItem.adapter = necessaryMaterialsAdapter
@@ -59,7 +62,6 @@ class AddNewAdvertFragment : BaseFragment<FragmentAddNewAdvertBinding, NewAdvert
             hashMapOf(
                 Pair(binding.inputLayoutTitle, EmptyValidator(title).validate()),
                 Pair(binding.inputLayoutExtraNotes, EmptyValidator(extraNotes).validate()),
-                Pair(binding.inputLayoutExtraItem, NecessaryMaterialsListValidator(materialList).validate()),
             )
         }, onSuccessCallback = {
             val title = binding.inputEditTextTitle.text.toString()
@@ -67,10 +69,16 @@ class AddNewAdvertFragment : BaseFragment<FragmentAddNewAdvertBinding, NewAdvert
 
             val category = binding.spinnerCategory.selectedItem as Category
 
+            val lastVal = NecessaryMaterialsListValidator(materialList).validate()
+
+            if (!lastVal.isSuccess) {
+                requireContext().toast(getString(lastVal.message))
+                return@multipleValidations
+            }
 
             viewModel.addNewAdvert(
                 Advert(
-                    userId= viewModel.appSession.user?.docId ?: "" ,
+                    userId = viewModel.appSession.user?.docId ?: "",
                     title = title,
                     additionalInformation = extraNotes,
                     category = category,
@@ -82,35 +90,48 @@ class AddNewAdvertFragment : BaseFragment<FragmentAddNewAdvertBinding, NewAdvert
 
         })
 
-        binding.inputLayoutExtraItem.setStartIconOnClickListener {
-            val input = binding.inputEditTextExtraItem.text.toString()
+        binding.buttonAddItem.multipleValidations(buttonClickListener = {
+            val itemCount = binding.inputEditTextExtraItem.text.toString()
+            val itemName = binding.inputEditTextExtraItemName.text.toString()
 
-            val inputValidation = NecessaryMaterialsValidator(input).validate()
+            hashMapOf(
+                Pair(binding.inputLayoutExtraItem, EmptyValidator(itemCount).validate()),
+                Pair(binding.inputLayoutExtraItemName, EmptyValidator(itemName).validate()),
+            )
+        }, onSuccessCallback = {
+            val itemCount = binding.inputEditTextExtraItem.text.toString()
+            val itemName = binding.inputEditTextExtraItemName.text.toString()
 
-            if (!inputValidation.isSuccess) {
-                binding.inputLayoutExtraItem.error = getString(inputValidation.message)
-                return@setStartIconOnClickListener
-            } else
-                binding.inputLayoutExtraItem.error = null
+            val itemCountInt = itemCount.toIntOrNull()
 
+            if (itemCountInt == null) {
+                binding.inputLayoutExtraItem.error =
+                    getString(R.string.validation_error_necessary_items_count)
+                return@multipleValidations
+            }
 
-            materialList.add(parseNecessaryMaterial(input))
+            materialList.add(
+                NecessaryMaterials(itemCountInt, itemName)
+            )
             necessaryMaterialsAdapter.updateData(materialList)
 
-        }
-    }
-
-    private fun parseNecessaryMaterial(input: String): NecessaryMaterials {
-        val firstBlankInd = input.indexOf(" ")
-        val count = input.substring(0, firstBlankInd)
-        val information = input.substring(firstBlankInd+1)
-
-        return NecessaryMaterials(count.toIntOrNull() ?: 0, information)
+        })
     }
 
     override fun onMaterialItemClicked(item: NecessaryMaterials, position: Int) {
         materialList.removeAt(position)
         necessaryMaterialsAdapter.updateData(materialList)
+    }
+
+    private fun initUI() {
+        binding.inputEditTextTitle.hint =
+            SpannableStringBuilder(getString(R.string.new_advert_title))
+        binding.inputEditTextExtraNotes.hint =
+            SpannableStringBuilder(getString(R.string.new_advert_extra_notes))
+        binding.inputEditTextExtraItem.hint =
+            SpannableStringBuilder(getString(R.string.new_advert_item_count))
+        binding.inputEditTextExtraItemName.hint =
+            SpannableStringBuilder(getString(R.string.new_advert_item_name))
     }
 
 }

@@ -36,7 +36,7 @@ class MyAdvertsFragment : BaseFragment<FragmentMyAdvertsBinding, MyAdvertsViewMo
         handleNavigation(NavigationCommand.ToDirection(MyAdvertsFragmentDirections.actionMyAdvertsFragmentToContributeFragment(advert)))
     }
 
-    override fun onApprovedContributionClicked(advert: Advert, position: Int) {
+    override fun onFinishTaskClicked(advert: Advert, position: Int) {
 
     }
 

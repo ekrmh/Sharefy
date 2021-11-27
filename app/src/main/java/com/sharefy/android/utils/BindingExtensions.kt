@@ -33,6 +33,7 @@ fun visibleIf(view: View, shouldVisible: Boolean) {
     }
 }
 
+
 @Suppress("UNCHECKED_CAST")
 @BindingAdapter("submitData")
 fun setData(recyclerView: RecyclerView, list: List<ListAdapterItem>?) {

@@ -1,6 +1,7 @@
 package com.sharefy.android.ui.fragment.register
 
 import android.os.Bundle
+import android.text.SpannableStringBuilder
 import androidx.fragment.app.viewModels
 import com.sharefy.android.R
 import com.sharefy.android.base.BaseFragment
@@ -17,7 +18,7 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding, RegisterViewModel
     override val viewModel: RegisterViewModel by viewModels()
 
     override fun onReady(savedInstanceState: Bundle?) {
-
+        initUI()
         viewModel.goToMain.observeNonNull(this){
             if (it){
                 startActivity(MainActivity.newIntent(requireContext()))
@@ -31,6 +32,12 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding, RegisterViewModel
             val password = binding.textFieldPassword.editText?.text.toString()
             viewModel.register(username, email, password)
         }
+    }
+
+    private fun initUI(){
+        binding.editTextEmail.hint = SpannableStringBuilder(getString(R.string.email))
+        binding.editTextPassword.hint = SpannableStringBuilder(getString(R.string.password))
+        binding.editTextUsername.hint = SpannableStringBuilder(getString(R.string.username))
     }
 
 }

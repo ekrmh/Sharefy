@@ -8,7 +8,7 @@ import com.sharefy.android.model.Advert
 
 class MyAdvertsAdapter(
     private val adverts: List<Advert>,
-    private val advertsClickListener: MyAdvertsClickListener
+    private val advertsClickListener: MyAdvertsClickListener,
 ) : BaseAdapter<ItemAdvertsBinding, Advert>(adverts) {
 
     override val layoutId: Int = R.layout.item_adverts
@@ -20,7 +20,11 @@ class MyAdvertsAdapter(
         }
 
         binding.progressPendingContribution.setOnClickListener {
-            advertsClickListener.onPendingContributionClicked(item,position)
+            advertsClickListener.onPendingContributionClicked(item, position)
+        }
+
+        binding.progressFinishAdvert.setOnClickListener {
+
         }
 
         binding.apply {
@@ -32,8 +36,9 @@ class MyAdvertsAdapter(
     }
 
     private fun initProgressStatus(advert: Advert): Int {
-        var totalNumber =  advert.necessaryMaterial.sumOf { it.count }
-        var completedNumber =  advert.necessaryMaterial.sumOf { it.approvedContribution.sumOf { it.count } }
+        var totalNumber = advert.necessaryMaterial.sumOf { it.count }
+        var completedNumber =
+            advert.necessaryMaterial.sumOf { it.approvedContribution.sumOf { it.count } }
 
 
         return ((completedNumber.toFloat() / totalNumber.toFloat()) * 100).toInt()
@@ -42,6 +47,6 @@ class MyAdvertsAdapter(
 
 interface MyAdvertsClickListener {
     fun onItemClicked(advert: Advert, position: Int)
-    fun onApprovedContributionClicked(advert: Advert, position: Int)
+    fun onFinishTaskClicked(advert: Advert, position: Int)
     fun onPendingContributionClicked(advert: Advert, position: Int)
 }

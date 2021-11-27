@@ -39,5 +39,4 @@ class AdvertRepositoryImp @Inject constructor(
     override suspend fun updateAdvertMaterial(docId: String, map: Map<String, Any>): Flow<Void> {
         return updateFlowCall(advertCollection, docId, map)
     }
-
 }

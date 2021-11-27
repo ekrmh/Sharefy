@@ -22,12 +22,16 @@
 
     <string name="new_advert_extra_notes">Ek Notlar</string>
     <string name="new_advert_required_items">İhtiyaç Listesi</string>
+    <string name="new_advert_required_items_detail">İhtiyaç listesi için giriş yapnızı istiyoruz. İhtiyaç olan malzemenin ismini ve adedini ilgili alanlara girdikten sonra ekle butonuna basınız.</string>
     <string name="new_advert_add">Onayla</string>
+    <string name="new_advert_item_count">Malzeme adedi</string>
+    <string name="new_advert_item_name">Malzeme ismi</string>
 
     <string name="validation_success" />
     <string name="validation_error_empty">Lütfen boş alanı doldurunuz.</string>
     <string name="validation_error_necessary_items_count_missing">Giriş değeri gerekli malzeme adeti içermelidir. (ör. 10 kitap, 2 kazak)</string>
-    <string name="validation_error_necessary_items_empty">En az 1 adet malzeme girilmelidir. (ör. 10 kitap, 2 kazak)</string>
+    <string name="validation_error_necessary_items_count">Lütfen geçerli bir sayı giriniz!</string>
+    <string name="validation_error_necessary_items_empty">En az 1 adet malzeme girilmelidir.</string>
     <string name="item_necessary_item_sub1">İhtiyaç Adı</string>
     <string name="item_necessary_item_sub2">Adet</string>
 
@@ -54,4 +58,7 @@
     <string name="input_count">Adet girin: (Gerekli adet sayisi: %s)</string>
     <string name="input_count2">"Toplanan ihtiyaç adeti: %s"</string>
     <string name="contact">İletişim</string>
+    <string name="advert_detail_finish">İlanı tamamla</string>
+    <string name="item_neccessary_waiting_approvement">Onay bekleniyor</string>
+    <string name="new_advert_button_add">Ekle</string>
 </resources>
