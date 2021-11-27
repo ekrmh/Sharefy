@@ -8,32 +8,48 @@
     <fragment
         android:id="@+id/mapFragment"
         android:name="com.sharefy.android.ui.fragment.map.MapFragment"
-        android:label="Sharefy" >
+        android:label="@string/app_name" >
         <action
             android:id="@+id/action_mapFragment_to_addNewAdvertFragment"
             app:destination="@id/addNewAdvertFragment" />
         <action
             android:id="@+id/action_mapFragment_to_contributeFragment"
             app:destination="@id/contributeFragment" />
+        <action
+            android:id="@+id/action_mapFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
     </fragment>
     <fragment
         android:id="@+id/addNewAdvertFragment"
         android:name="com.sharefy.android.ui.fragment.add_new_advert.AddNewAdvertFragment"
-        android:label="Ilan Ekle" >
+        android:label="@string/add_new_advert_btn" >
         <argument
             android:name="latLng"
             app:argType="com.google.android.gms.maps.model.LatLng" />
+        <action
+            android:id="@+id/action_addNewAdvertFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
     </fragment>
     <fragment
         android:id="@+id/myAdvertsFragment"
         android:name="com.sharefy.android.ui.fragment.my_adverts.MyAdvertsFragment"
-        android:label="Ilanlarim" />
+        android:label="@string/my_adverts" />
     <fragment
         android:id="@+id/contributeFragment"
         android:name="com.sharefy.android.ui.fragment.contribute.ContributeFragment"
-        android:label="ContributeFragment" >
+        android:label="@string/advert_detail_go_detail" >
         <argument
             android:name="advert"
             app:argType="com.sharefy.android.model.Advert" />
+        <action
+            android:id="@+id/action_contributeFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_contributeFragment_to_addNewAdvertFragment"
+            app:destination="@id/addNewAdvertFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.sharefy.android.ui.fragment.profile.ProfileFragment"
+        android:label="@string/my_profile" />
 </navigation>

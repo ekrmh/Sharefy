@@ -34,14 +34,14 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="Ilan basligi" />
+                tools:text="@string/new_advert_title" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/textView_materialNameSubTit"
                 style="@style/TextAppearance.Sharefy.Subtitle4"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Ilan basligi"
+                android:text="@string/new_advert_title"
                 app:layout_constraintStart_toStartOf="@+id/textView_materialName"
                 app:layout_constraintTop_toBottomOf="@+id/textView_materialName" />
 
@@ -54,14 +54,14 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView_materialNameSubTit"
-                tools:text="Ilan ek bilgisi" />
+                tools:text="@string/new_advert_extra_notes" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/textView_materialCountSubTit"
                 style="@style/TextAppearance.Sharefy.Subtitle4"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Ilan ek bilgisi"
+                android:text="@string/new_advert_extra_notes"
                 app:layout_constraintStart_toStartOf="@+id/textView_materialCount"
                 app:layout_constraintTop_toBottomOf="@+id/textView_materialCount" />
 
@@ -81,7 +81,7 @@
                 style="@style/TextAppearance.Sharefy.Subtitle4"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Kategori"
+                android:text="@string/category"
                 app:layout_constraintStart_toStartOf="@+id/textView_category"
                 app:layout_constraintTop_toBottomOf="@+id/textView_category" />
 

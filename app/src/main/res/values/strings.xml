@@ -13,8 +13,8 @@
     <string name="warning">Uyarı</string>
     <string name="ok">Tamam</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="bottom_nav_menu_menu">Harita</string>
-    <string name="bottom_nav_menu_my_adverts">Ilanlarim</string>
+    <string name="bottom_nav_menu_menu">Keşfet</string>
+    <string name="bottom_nav_menu_my_adverts">İlanlarım</string>
     <string name="bottom_nav_manu_open_adverts">Acik malzemeler</string>
     <string name="bottom_nav_menu_profile">Profil</string>
     <string name="new_advert_category">Tür</string>
@@ -26,20 +26,24 @@
 
     <string name="validation_success" />
     <string name="validation_error_empty">Lütfen boş alanı doldurunuz.</string>
-    <string name="validation_error_necessary_items_count_missing">Girşs değeri gerekli malzeme adeti içermelidir. (ör. 10 kitap, 2 kazak)</string>
+    <string name="validation_error_necessary_items_count_missing">Giriş değeri gerekli malzeme adeti içermelidir. (ör. 10 kitap, 2 kazak)</string>
     <string name="validation_error_necessary_items_empty">En az 1 adet malzeme girilmelidir. (ör. 10 kitap, 2 kazak)</string>
     <string name="item_necessary_item_sub1">İhtiyaç Adı</string>
     <string name="item_necessary_item_sub2">Adet</string>
 
-    <string name="advert_detail_advert_sub_tit">Ilan basligi</string>
+    <string name="advert_detail_advert_sub_tit">Başlık</string>
     <string name="advert_detail_advert_extra_notes_sub_tit">Ek notlar</string>
     <string name="advert_detail_advert_progress">Tamamlanma oranı</string>
     <string name="advert_detail_advert_category">Kategori</string>
-    <string name="advert_detail_go_detail">Detaya git</string>
+    <string name="advert_detail_go_detail">Detay</string>
     <string name="string_register">Hesabın yok mu? <font color='#FF3700B3'><u>Buraya tıklayarak hesap oluştur!</u></font></string>
     <string name="add_new_advert">Yeni bir ilan eklemek icin buraya tıklayın</string>
-    <string name="advert_detail_approved"><u>Onaylanmis yardimlar</u></string>
-    <string name="advert_detail_pending"><u>Onay bekleyen yardimlar</u></string>
-    <string name="advert_contribution_required_title">Gerekli malzemeler</string>
+    <string name="advert_detail_approved"><u>Onaylanmış yardımlar</u></string>
+    <string name="advert_detail_pending"><u>Onay bekleyen yardımlar</u></string>
+    <string name="advert_contribution_required_title">İhtiyaç Listesi</string>
     <string name="view_contribution_add">Ekle</string>
+    <string name="my_profile">Profilim</string>
+    <string name="my_adverts">İlanlarım</string>
+    <string name="category">Kategori</string>
+    <string name="add_new_advert_btn">İlan Ekle</string>
 </resources>
