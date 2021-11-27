@@ -6,6 +6,6 @@ import com.sharefy.android.model.User
 
 class AppSession {
     var categories: List<Category>?= null
-    var user: User?= null
+    var user: User = User()
 
 }

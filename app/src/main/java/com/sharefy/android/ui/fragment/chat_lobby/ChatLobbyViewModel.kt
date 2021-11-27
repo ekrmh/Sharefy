@@ -20,10 +20,8 @@ class ChatLobbyViewModel @Inject constructor(
 
     fun getAllChats() {
         bgScope.launch {
-            appSession.user?.docId?.let {
-                chatRepository.getAllChats(it).run { list ->
-                    _chatList.postValue(list)
-                }
+            chatRepository.getAllChats(appSession.user.docId).run { list ->
+                _chatList.postValue(list)
             }
         }
     }

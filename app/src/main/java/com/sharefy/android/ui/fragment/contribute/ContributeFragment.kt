@@ -30,13 +30,14 @@ class ContributeFragment : BaseFragment<FragmentContributeBinding, ContributeVie
 
     private val args by navArgs<ContributeFragmentArgs>()
 
-    private val necessaryMaterialsAdapter = ContributionMaterialAdapter(listOf(), this)
+    private val necessaryMaterialsAdapter by lazy { ContributionMaterialAdapter(args.advert.userId == this@ContributeFragment.viewModel.appSession.user.docId, listOf(), this) }
 
     override fun onReady(savedInstanceState: Bundle?) {
         binding.apply {
             advert = args.advert
             recyclerViewMaterials.adapter = necessaryMaterialsAdapter
 
+            imageviewEmail.visibility = if (args.advert.userId != this@ContributeFragment.viewModel.appSession.user.docId) View.VISIBLE else View.GONE
             imageviewEmail.setOnClickListener {
                 this@ContributeFragment.viewModel.openMessageScreen(advert as Advert)
             }
@@ -48,7 +49,7 @@ class ContributeFragment : BaseFragment<FragmentContributeBinding, ContributeVie
     override fun onMaterialItemClicked(item: NecessaryMaterials, position: Int) {
         ContributeDialog(
             requireContext(),
-            userId = viewModel.appSession.user?.docId ?: "",
+            userId = viewModel.appSession.user.docId,
             necessaryMaterials = item
         ) { updatedMaterial ->
 

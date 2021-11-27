@@ -29,7 +29,7 @@ class ContributeViewModel @Inject constructor(
     }
 
     fun openMessageScreen(advert: Advert) {
-        val user = appSession.user ?: return
+        val user = appSession.user
         val lobby = ChatLobby(
             personIds = listOf(user.docId, advert.userId),
             personEmails = listOf(user.email, advert.contact),

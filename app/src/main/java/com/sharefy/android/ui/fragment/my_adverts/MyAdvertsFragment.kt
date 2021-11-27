@@ -28,7 +28,7 @@ class MyAdvertsFragment : BaseFragment<FragmentMyAdvertsBinding, MyAdvertsViewMo
     override fun onReady(savedInstanceState: Bundle?) {
 
         binding.advertsAdapter = MyAdvertsAdapter(listOf(), this)
-        viewModel.fetchMyAdverts(viewModel.appSession.user?.docId ?: "")
+        viewModel.fetchMyAdverts(viewModel.appSession.user.docId)
 
     }
 
@@ -49,7 +49,7 @@ class MyAdvertsFragment : BaseFragment<FragmentMyAdvertsBinding, MyAdvertsViewMo
         PendingContributionBottomSheetDialog(
             advert
         ) {
-            viewModel.fetchMyAdverts(viewModel.appSession.user?.docId ?: "")
+            viewModel.fetchMyAdverts(viewModel.appSession.user.docId)
         }.show(
             parentFragmentManager, "TAG"
         )

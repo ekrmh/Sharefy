@@ -3,6 +3,7 @@ package com.sharefy.android.ui.fragment.profile
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.sharefy.android.base.BaseViewModel
+import com.sharefy.android.model.User
 import com.sharefy.android.repository.UserRepository
 import com.sharefy.android.utils.AppPreferences
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -21,7 +22,7 @@ class ProfileViewModel @Inject constructor(private val userRepository: UserRepos
             userRepository.signOut().run {
                 AppPreferences.email = ""
                 AppPreferences.password = ""
-                appSession.user = null
+                appSession.user = User()
                 _goToBeforeLogin.postValue(true)
             }
         }

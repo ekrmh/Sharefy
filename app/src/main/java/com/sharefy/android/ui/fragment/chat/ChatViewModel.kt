@@ -32,7 +32,7 @@ class ChatViewModel @Inject constructor(
         bgScope.launch {
             val messages = mutableListOf<Chat>().apply {
                 addAll(chat.value?.messages ?: listOf())
-                add(Chat(appSession.user?.docId ?: "", message))
+                add(Chat(appSession.user.docId, message))
             }
 
             chatRepository.sendMessage(chatLobbyId, messages).run {

@@ -22,7 +22,7 @@ class ChatLobbyFragment : BaseFragment<FragmentChatLobbyBinding, ChatLobbyViewMo
         viewModel.getAllChats()
 
         viewModel.chatList.observeNonNull(this){
-            binding.recyclerView.adapter = ChatLobbyAdapter(viewModel.appSession.user!!, it){
+            binding.recyclerView.adapter = ChatLobbyAdapter(viewModel.appSession.user, it){
                 handleNavigation(NavigationCommand.ToDirection(ChatLobbyFragmentDirections.actionChatLobbyFragmentToChatFragment(it.docId)))
             }
         }

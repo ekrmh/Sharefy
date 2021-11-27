@@ -48,9 +48,11 @@ class LoginViewModel @Inject constructor(private val userRepository: UserReposit
 
     private fun getUserData(email: String) {
         bgScope.launch {
-            userRepository.getUserData(email).run {
-                appSession.user = it
-                _goToMain.postValue(true)
+            userRepository.getUserData(email).run { user ->
+                if (user != null) {
+                    appSession.user = user
+                    _goToMain.postValue(true)
+                }
             }
         }
     }
