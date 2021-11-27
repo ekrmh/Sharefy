@@ -31,11 +31,8 @@ class AdvertRepositoryImp @Inject constructor(
 
     override suspend fun getMyAdverts(userId: String): Flow<List<Advert>> {
         return safeFlowCall {
-            val result = advertCollection.get().await()
-            val collection = result.toObjects(Advert::class.java)
-            collection.filter {
-               it.userId == userId
-            }
+            val result = advertCollection.whereEqualTo("userId", userId).get().await()
+            result.toObjects(Advert::class.java)
         }
     }
 
